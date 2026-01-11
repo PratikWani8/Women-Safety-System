@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Women Safety System</title>
+    <link rel="stylesheet" href="style.css?v=2">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+<header>
+    <h1> Women Safety System</h1>
+    <p>Report • Protect • Respond</p>
+</header>
+<div class="card">
+    <h2>Welcome</h2>
+    <p>
+        This platform allows women to report safety incidents, send emergency SOS alerts,
+        and track complaint status securely.
+    </p>
+<div class="btn-group">
+    <a href="auth/register.php">
+        <button>📝 Register</button>
+    </a>
+    <a href="auth/login.php">
+        <button>🔐 User Login</button>
+    </a>
+    <a href="admin/admin_login.php">
+        <button class="danger">👮 Admin Login</button>
+    </a>
+</div>
+</div>
+<footer style="text-align:center; padding:15px; color:#666;">
+    © <?php echo date("Y"); ?> Women Safety System | Designed for Safety • Security • Empowerment | All Rights Reserved.
+</footer>
+</body>
+</html>
