@@ -1,41 +1,57 @@
 <?php
 include("../config/db.php");
+
 if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['register'])) {
+
+    // 🔹 Get & sanitize inputs
     $name  = trim($_POST['name']);
     $email = filter_var(trim($_POST['email']), FILTER_SANITIZE_EMAIL);
     $phone = preg_replace('/[^0-9]/', '', $_POST['phone']);
     $pass  = $_POST['password'];
     $cpass = $_POST['confirm_password'];
+
+    // 🔹 Validations
     if (strlen($pass) < 6) {
         echo "<script>alert('Password must be at least 6 characters');</script>";
         exit;
     }
+
     if ($pass !== $cpass) {
         echo "<script>alert('Passwords do not match');</script>";
         exit;
     }
+
     if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         echo "<script>alert('Invalid email address');</script>";
         exit;
     }
+
     if (strlen($phone) !== 10) {
         echo "<script>alert('Phone number must be 10 digits');</script>";
         exit;
     }
-    $check = $conn->prepare("SELECT id FROM users WHERE email = ?");
+
+    // 🔹 Check if email already exists (BEST PRACTICE)
+    $check = $conn->prepare("SELECT 1 FROM users WHERE email = ?");
     $check->bind_param("s", $email);
     $check->execute();
     $check->store_result();
+
     if ($check->num_rows > 0) {
         echo "<script>alert('Email already registered');</script>";
         exit;
     }
     $check->close();
+
+    // 🔹 Hash password
     $password = password_hash($pass, PASSWORD_DEFAULT);
+
+    // 🔹 Insert user
     $stmt = $conn->prepare(
         "INSERT INTO users (name, email, phone, password) VALUES (?, ?, ?, ?)"
     );
     $stmt->bind_param("ssss", $name, $email, $phone, $password);
+
     if ($stmt->execute()) {
         echo "<script>
             alert('Registration successful');
@@ -45,6 +61,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['register'])) {
     } else {
         echo "<script>alert('Registration failed');</script>";
     }
+
     $stmt->close();
 }
 ?>
@@ -57,27 +74,38 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['register'])) {
     <link rel="stylesheet" href="../style.css?v=3">
 </head>
 <body>
+
 <header>
     <h2>📝 User Registration</h2>
 </header>
+
 <div class="card">
     <form method="post" autocomplete="off">
+
         <label>Full Name</label>
         <input type="text" name="name" placeholder="Enter full name" required>
+
         <label>Email</label>
         <input type="email" name="email" placeholder="Enter email" required>
+
         <label>Phone</label>
         <input type="text" name="phone" pattern="[0-9]{10}" placeholder="10 digit number" required>
+
         <label>Password</label>
-        <input type="password" name="password" placeholder="Min 6 characters" required>        
+        <input type="password" name="password" placeholder="Min 6 characters" required>
+
         <label>Confirm Password</label>
-        <input type="password" name="confirm_password" placeholder="Re-enter password" required>        
+        <input type="password" name="confirm_password" placeholder="Re-enter password" required>
+
         <button type="submit" name="register">Register</button>
+
         <p style="text-align:center; margin-top:15px;">
             Already registered? <a href="login.php">Login</a>
         </p>
+
     </form>
 </div>
+
 <script>
 document.querySelector("form").addEventListener("submit", () => {
     const btn = document.querySelector("button");
@@ -85,5 +113,6 @@ document.querySelector("form").addEventListener("submit", () => {
     btn.style.opacity = "0.8";
 });
 </script>
+
 </body>
 </html>
