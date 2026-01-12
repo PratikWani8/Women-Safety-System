@@ -67,13 +67,21 @@ $resolved  = $conn->query("SELECT COUNT(*) c FROM complaints WHERE status='Resol
 <section class="card">
 <h3>All Complaints</h3>
 <?php
-$res = $conn->query("SELECT * FROM complaints ORDER BY reported_at DESC");
+$res = $conn->query("
+    SELECT complaints.*, users.name AS accused_name
+    FROM complaints
+    JOIN users ON complaints.user_id = users.user_id
+    ORDER BY complaints.reported_at DESC
+");
+
 if ($res->num_rows === 0) echo "<p>No complaints found.</p>";
 while ($row = $res->fetch_assoc()) {
 ?>
 <div class="complaint">
     <div>
         <b>ID:</b> <?php echo $row['complaint_id']; ?><br>
+        <b>Accused:</b>
+        <?php echo htmlspecialchars($row['accused_name']); ?><br>
         <b>Type:</b> <?php echo $row['incident_type']; ?><br>
         <b>Status:</b> <span class="status <?php echo strtolower(str_replace(' ','',$row['status'])); ?>">
             <?php echo $row['status']; ?>
