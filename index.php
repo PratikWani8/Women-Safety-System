@@ -7,12 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-<header>
-    <h1> Women Safety System</h1>
-    <p>Report • Protect • Respond</p>
+<header style="background: linear-gradient(135deg, #fbc2eb, #a18cd1);">
+    <h1 style="font-weight: 900;">Women Safety System</h1>
+    <p>Report • Respond • Protect</p>
 </header>
 <div class="card">
-    <h2>Welcome</h2>
+    <h2>Welcome!</h2>
     <p>
         This platform allows women to report safety incidents, send emergency SOS alerts,
         and track complaint status securely.
@@ -30,7 +30,7 @@
 </div>
 </div>
 <footer style="text-align:center; padding:15px; color:#666;">
-    © <?php echo date("Y"); ?> Women Safety System | Designed for Safety • Security • Empowerment | All Rights Reserved.
+    © <?php echo date("Y"); ?> Women Safety System | Designed for Safety • Security • Empowerment for Women | All Rights Reserved.
 </footer>
 </body>
 </html>
