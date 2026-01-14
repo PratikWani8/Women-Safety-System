@@ -5,27 +5,21 @@ if (!isset($_SESSION['user_id'])) {
     exit;
 }
 if (isset($_POST['submit'])) {
-
     $type = $_POST['type'];
     $desc = $_POST['desc'];
     $location = $_POST['location'];
     $fileName = "";
     if (!empty($_FILES['evidence']['name'])) {
-
         $allowedTypes = ['image/jpeg', 'image/png', 'audio/mpeg'];
         $maxSize = 2 * 1024 * 1024;
-
         if ($_FILES['evidence']['size'] > $maxSize) {
             die("❌ File size exceeds 2MB limit");
         }
-
         if (!in_array($_FILES['evidence']['type'], $allowedTypes)) {
             die("❌ Invalid file type");
         }
-
         $ext = pathinfo($_FILES['evidence']['name'], PATHINFO_EXTENSION);
         $fileName = bin2hex(random_bytes(10)) . "." . $ext;
-
         move_uploaded_file(
             $_FILES['evidence']['tmp_name'],
             "../uploads/" . $fileName
@@ -44,7 +38,6 @@ if (isset($_POST['submit'])) {
         $fileName
     );
     $stmt->execute();
-
     echo "<script>alert('✅ Complaint submitted successfully');</script>";
 }
 ?>
