@@ -38,23 +38,32 @@ if (!isset($_SESSION['admin'])) {
         <button>⬅ Back to Dashboard</button>
     </a>
 </div>
+<audio id="sosSound">
+    <source src="../assets/alert.mp3" type="audio/mpeg">
+</audio>
 <script>
 let lastCount = 0;
+function isWithinOneHour(sentTime) {
+    const sentDate = new Date(sentTime);
+    const now = new Date();
+    const diffMinutes = (now - sentDate) / (1000 * 60);
+    return diffMinutes <= 60;
+}
 function loadSOS() {
     fetch("fetch_sos.php")
         .then(res => res.json())
         .then(data => {
             const container = document.getElementById("sosContainer");
             container.innerHTML = "";
-            if (data.length === 0) {
-                container.innerHTML = "<p>No SOS alerts found.</p>";
-                return;
-            }
             if (data.length > lastCount && lastCount !== 0) {
                 alert("🚨 NEW SOS ALERT RECEIVED!");
+                document.getElementById("sosSound").play();
             }
             lastCount = data.length;
+            let visibleCount = 0;
             data.forEach(s => {
+                if (!isWithinOneHour(s.sent_at)) return;
+                visibleCount++;
                 container.innerHTML += `
                     <div class="card sos-alert">
                         <p>
@@ -67,6 +76,9 @@ function loadSOS() {
                     </div>
                 `;
             });
+            if (visibleCount === 0) {
+                container.innerHTML = "<p>No active SOS alerts (older than 1 hour).</p>";
+            }
         });
 }
 loadSOS();

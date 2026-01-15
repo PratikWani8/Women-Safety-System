@@ -14,8 +14,47 @@ if (!isset($_SESSION['admin'])) {
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="admin_dashboard.css">
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+/* Search Filter Styling */
+.search-box {
+    position: relative;
+    margin-bottom: 18px;
+    margin-top: 12px;
+}
+
+.search-box input {
+    width: 100%;
+    padding: 12px 44px 12px 16px;
+    border-radius: 12px;
+    border: 1px solid #ddd;
+    font-size: 14px;
+    outline: none;
+    background: #f9fafb;
+    transition: all 0.3s ease;
+}
+
+.search-box input:focus {
+    border-color: #4caf50;
+    background: #fff;
+    box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.15);
+}
+
+.search-box::after {
+    content: "🔍";
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 16px;
+    color: #777;
+    pointer-events: none;
+}
+</style>
 </head>
+
 <body>
+
 <div class="dashboard">
 <aside class="sidebar">
     <h2 class="logo">Admin Panel</h2>
@@ -26,16 +65,19 @@ if (!isset($_SESSION['admin'])) {
         <a href="../auth/logout.php" class="logout">🚪 Logout</a>
     </nav>
 </aside>
+
 <main class="main-content">
 <header class="topbar">
     <h1>Complaint Dashboard</h1>
 </header>
+
 <?php
 $total     = $conn->query("SELECT COUNT(*) c FROM complaints")->fetch_assoc()['c'];
 $pending   = $conn->query("SELECT COUNT(*) c FROM complaints WHERE status='Pending'")->fetch_assoc()['c'];
 $progress  = $conn->query("SELECT COUNT(*) c FROM complaints WHERE status='In Progress'")->fetch_assoc()['c'];
 $resolved  = $conn->query("SELECT COUNT(*) c FROM complaints WHERE status='Resolved'")->fetch_assoc()['c'];
 ?>
+
 <section class="stats">
     <div class="stat-card total">
         <h2 class="counter" data-target="<?php echo $total; ?>">0</h2>
@@ -54,6 +96,7 @@ $resolved  = $conn->query("SELECT COUNT(*) c FROM complaints WHERE status='Resol
         <p>Resolved</p>
     </div>
 </section>
+
 <section class="charts-row">
     <div class="card chart-card">
         <h3>Complaints Distribution</h3>
@@ -64,8 +107,19 @@ $resolved  = $conn->query("SELECT COUNT(*) c FROM complaints WHERE status='Resol
         <canvas id="statusChart"></canvas>
     </div>
 </section>
+
 <section class="card">
 <h3>All Complaints</h3>
+
+<!-- 🔍 SEARCH FILTER -->
+<div class="search-box">
+    <input type="text" id="nameSearch" placeholder="Search by accused name...">
+</div>
+
+<p id="noResult" style="display:none; color:#999; text-align:center; padding:20px;">
+    No result found
+</p>
+
 <?php
 $res = $conn->query("
     SELECT complaints.*, users.name AS accused_name
@@ -75,19 +129,22 @@ $res = $conn->query("
 ");
 
 if ($res->num_rows === 0) echo "<p>No complaints found.</p>";
+
 while ($row = $res->fetch_assoc()) {
 ?>
-<div class="complaint">
+
+<div class="complaint" data-name="<?php echo strtolower($row['accused_name']); ?>">
     <div>
         <b>ID:</b> <?php echo $row['complaint_id']; ?><br>
-        <b>Accused:</b>
-        <?php echo htmlspecialchars($row['accused_name']); ?><br>
+        <b>Accused:</b> <?php echo htmlspecialchars($row['accused_name']); ?><br>
         <b>Type:</b> <?php echo $row['incident_type']; ?><br>
-        <b>Status:</b> <span class="status <?php echo strtolower(str_replace(' ','',$row['status'])); ?>">
+        <b>Status:</b>
+        <span class="status <?php echo strtolower(str_replace(' ','',$row['status'])); ?>">
             <?php echo $row['status']; ?>
         </span><br>
         <small><?php echo $row['reported_at']; ?></small>
     </div>
+
     <div class="actions">
         <?php if (!empty($row['evidence'])) { ?>
             <a href="../uploads/<?php echo $row['evidence']; ?>" target="_blank">View Evidence</a>
@@ -97,11 +154,15 @@ while ($row = $res->fetch_assoc()) {
         </a>
     </div>
 </div>
+
 <?php } ?>
 </section>
+
 </main>
 </div>
+
 <script>
+// Counter animation
 document.querySelectorAll(".counter").forEach(counter => {
     let target = +counter.dataset.target;
     let count = 0;
@@ -114,12 +175,30 @@ document.querySelectorAll(".counter").forEach(counter => {
     };
     update();
 });
+
+// 🔍 Name filter logic
+document.getElementById("nameSearch").addEventListener("keyup", function () {
+    const value = this.value.toLowerCase();
+    let visibleCount = 0;
+
+    document.querySelectorAll(".complaint").forEach(c => {
+        if (c.dataset.name.includes(value)) {
+            c.style.display = "flex";
+            visibleCount++;
+        } else {
+            c.style.display = "none";
+        }
+    });
+
+    document.getElementById("noResult").style.display =
+        visibleCount === 0 ? "block" : "none";
+});
+
+
 const total = <?php echo $total; ?>;
-const dataVals = [
-    <?php echo $pending; ?>,
-    <?php echo $progress; ?>,
-    <?php echo $resolved; ?>
-];
+const dataVals = [<?php echo $pending; ?>, <?php echo $progress; ?>, <?php echo $resolved; ?>];
+
+// Bar chart %
 const barPercentPlugin = {
     id: 'barPercent',
     afterDatasetsDraw(chart) {
@@ -135,29 +214,29 @@ const barPercentPlugin = {
         });
     }
 };
+
+// Doughnut center %
 const doughnutCenterText = {
     id: 'centerText',
     afterDraw(chart) {
         const { ctx } = chart;
-        const dataset = chart.data.datasets[0];
-        const sum = dataset.data.reduce((a, b) => a + b, 0);
+        const data = chart.data.datasets[0].data;
+        const sum = data.reduce((a, b) => a + b, 0);
         if (!sum) return;
-        const maxIndex = dataset.data.indexOf(Math.max(...dataset.data));
-        const percent = ((dataset.data[maxIndex] / sum) * 100).toFixed(1) + "%";
-        const label = chart.data.labels[maxIndex];
-        const { width, height } = chart;
+        const i = data.indexOf(Math.max(...data));
+        const percent = ((data[i] / sum) * 100).toFixed(1) + "%";
         ctx.save();
         ctx.font = "bold 26px Segoe UI";
-        ctx.fillStyle = "#333";
         ctx.textAlign = "center";
-        ctx.textBaseline = "middle";
-        ctx.fillText(percent, width / 2, height / 2 - 8);
+        ctx.fillStyle = "#333";
+        ctx.fillText(percent, chart.width / 2, chart.height / 2 - 8);
         ctx.font = "14px Segoe UI";
         ctx.fillStyle = "#777";
-        ctx.fillText(label, width / 2, height / 2 + 18);
+        ctx.fillText(chart.data.labels[i], chart.width / 2, chart.height / 2 + 18);
         ctx.restore();
     }
 };
+
 new Chart(barChart, {
     type: "bar",
     data: {
@@ -174,6 +253,7 @@ new Chart(barChart, {
     },
     plugins: [barPercentPlugin]
 });
+
 new Chart(statusChart, {
     type: "doughnut",
     data: {
@@ -185,12 +265,11 @@ new Chart(statusChart, {
     },
     options: {
         cutout: "70%",
-        plugins: {
-            legend: { position: "bottom" }
-        }
+        plugins: { legend: { position: "bottom" } }
     },
     plugins: [doughnutCenterText]
 });
 </script>
+
 </body>
 </html>
