@@ -51,7 +51,7 @@ while ($row = $res->fetch_assoc()) {
 const sosData = <?php echo json_encode($data); ?>;
 const map = L.map('map').setView([20.5937, 78.9629], 5);
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '© OpenStreetMap'
+    attribution: '© Map'
 }).addTo(map);
 sosData.forEach(s => {
     L.marker([s.lat, s.lng]).addTo(map)
