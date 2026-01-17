@@ -38,7 +38,35 @@ if (isset($_POST['submit'])) {
         $fileName
     );
     $stmt->execute();
-    echo "<script>alert('✅ Complaint submitted successfully');</script>";
+    $sheetURL = "https://script.google.com/macros/s/AKfycbxQPNz0qWhOBUMl9131kklTQUAB3p9JH6-uH4oQCcaSundLVjzhBKHJdmxMGE6ogZC2/exec";
+    $sheetData = [
+        "user_id"  => $_SESSION['user_id'],
+        "type"     => $type,
+        "desc"     => $desc,
+        "location" => $location,
+        "evidence" => $fileName
+    ];
+    $options = [
+        "http" => [
+            "header"  => "Content-Type: application/json",
+            "method"  => "POST",
+            "content" => json_encode($sheetData),
+            "timeout" => 5
+        ]
+    ];
+    $context = stream_context_create($options);
+    $ch = curl_init($sheetURL);
+curl_setopt($ch, CURLOPT_POST, true);
+curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($sheetData));
+curl_setopt($ch, CURLOPT_HTTPHEADER, [
+    "Content-Type: application/json",
+    "Content-Length: " . strlen(json_encode($sheetData))
+]);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false); 
+$response = curl_exec($ch);
+curl_close($ch);
+echo "<script>alert('✅ Complaint submitted successfully');</script>";
 }
 ?>
 
@@ -63,8 +91,9 @@ if (isset($_POST['submit'])) {
     <button type="button" onclick="getLocation()">📍 Capture Live Location</button>
     <label>Upload Evidence (Image / Audio)</label>
     <input type="file" name="evidence" accept="image/*,audio/*">
-    <button type="submit" name="submit">Submit Complaint</button>
+    <button type="submit" name="submit" style="background-color: #28a745; color: white; padding: 10px 20px; border: none; border-radius: 5px;">Submit Complaint</button>
 </form>
+<a href="dashboard.php"><button>⬅ Back to Dashboard</button></a>
 </div>
 <script>
 function getLocation() {
