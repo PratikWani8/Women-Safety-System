@@ -14,15 +14,12 @@ if (!isset($_SESSION['admin'])) {
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="admin_dashboard.css">
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
 <style>
-/* Search Filter Styling */
 .search-box {
     position: relative;
     margin-bottom: 18px;
     margin-top: 12px;
 }
-
 .search-box input {
     width: 100%;
     padding: 12px 44px 12px 16px;
@@ -33,13 +30,11 @@ if (!isset($_SESSION['admin'])) {
     background: #f9fafb;
     transition: all 0.3s ease;
 }
-
 .search-box input:focus {
     border-color: #4caf50;
     background: #fff;
     box-shadow: 0 0 0 3px rgba(76, 175, 80, 0.15);
 }
-
 .search-box::after {
     content: "🔍";
     position: absolute;
@@ -52,9 +47,7 @@ if (!isset($_SESSION['admin'])) {
 }
 </style>
 </head>
-
 <body>
-
 <div class="dashboard">
 <aside class="sidebar">
     <h2 class="logo">Admin Panel</h2>
@@ -65,19 +58,16 @@ if (!isset($_SESSION['admin'])) {
         <a href="../auth/logout.php" class="logout">🚪 Logout</a>
     </nav>
 </aside>
-
 <main class="main-content">
 <header class="topbar">
     <h1>Complaint Dashboard</h1>
 </header>
-
 <?php
 $total     = $conn->query("SELECT COUNT(*) c FROM complaints")->fetch_assoc()['c'];
 $pending   = $conn->query("SELECT COUNT(*) c FROM complaints WHERE status='Pending'")->fetch_assoc()['c'];
 $progress  = $conn->query("SELECT COUNT(*) c FROM complaints WHERE status='In Progress'")->fetch_assoc()['c'];
 $resolved  = $conn->query("SELECT COUNT(*) c FROM complaints WHERE status='Resolved'")->fetch_assoc()['c'];
 ?>
-
 <section class="stats">
     <div class="stat-card total">
         <h2 class="counter" data-target="<?php echo $total; ?>">0</h2>
@@ -96,7 +86,6 @@ $resolved  = $conn->query("SELECT COUNT(*) c FROM complaints WHERE status='Resol
         <p>Resolved</p>
     </div>
 </section>
-
 <section class="charts-row">
     <div class="card chart-card">
         <h3>Complaints Distribution</h3>
@@ -107,19 +96,14 @@ $resolved  = $conn->query("SELECT COUNT(*) c FROM complaints WHERE status='Resol
         <canvas id="statusChart"></canvas>
     </div>
 </section>
-
 <section class="card">
 <h3>All Complaints</h3>
-
-<!-- 🔍 SEARCH FILTER -->
 <div class="search-box">
     <input type="text" id="nameSearch" placeholder="Search by accused name...">
 </div>
-
 <p id="noResult" style="display:none; color:#999; text-align:center; padding:20px;">
     No result found
 </p>
-
 <?php
 $res = $conn->query("
     SELECT complaints.*, users.name AS accused_name
@@ -127,12 +111,9 @@ $res = $conn->query("
     JOIN users ON complaints.user_id = users.user_id
     ORDER BY complaints.reported_at DESC
 ");
-
 if ($res->num_rows === 0) echo "<p>No complaints found.</p>";
-
 while ($row = $res->fetch_assoc()) {
 ?>
-
 <div class="complaint" data-name="<?php echo strtolower($row['accused_name']); ?>">
     <div>
         <b>ID:</b> <?php echo $row['complaint_id']; ?><br>
@@ -144,7 +125,6 @@ while ($row = $res->fetch_assoc()) {
         </span><br>
         <small><?php echo $row['reported_at']; ?></small>
     </div>
-
     <div class="actions">
         <?php if (!empty($row['evidence'])) { ?>
             <a href="../uploads/<?php echo $row['evidence']; ?>" target="_blank">View Evidence</a>
@@ -154,15 +134,11 @@ while ($row = $res->fetch_assoc()) {
         </a>
     </div>
 </div>
-
 <?php } ?>
 </section>
-
 </main>
 </div>
-
 <script>
-// Counter animation
 document.querySelectorAll(".counter").forEach(counter => {
     let target = +counter.dataset.target;
     let count = 0;
@@ -175,12 +151,9 @@ document.querySelectorAll(".counter").forEach(counter => {
     };
     update();
 });
-
-// 🔍 Name filter logic
 document.getElementById("nameSearch").addEventListener("keyup", function () {
     const value = this.value.toLowerCase();
     let visibleCount = 0;
-
     document.querySelectorAll(".complaint").forEach(c => {
         if (c.dataset.name.includes(value)) {
             c.style.display = "flex";
@@ -189,16 +162,11 @@ document.getElementById("nameSearch").addEventListener("keyup", function () {
             c.style.display = "none";
         }
     });
-
     document.getElementById("noResult").style.display =
         visibleCount === 0 ? "block" : "none";
 });
-
-
 const total = <?php echo $total; ?>;
 const dataVals = [<?php echo $pending; ?>, <?php echo $progress; ?>, <?php echo $resolved; ?>];
-
-// Bar chart %
 const barPercentPlugin = {
     id: 'barPercent',
     afterDatasetsDraw(chart) {
@@ -214,8 +182,6 @@ const barPercentPlugin = {
         });
     }
 };
-
-// Doughnut center %
 const doughnutCenterText = {
     id: 'centerText',
     afterDraw(chart) {
@@ -236,7 +202,6 @@ const doughnutCenterText = {
         ctx.restore();
     }
 };
-
 new Chart(barChart, {
     type: "bar",
     data: {
@@ -253,7 +218,6 @@ new Chart(barChart, {
     },
     plugins: [barPercentPlugin]
 });
-
 new Chart(statusChart, {
     type: "doughnut",
     data: {
@@ -270,6 +234,5 @@ new Chart(statusChart, {
     plugins: [doughnutCenterText]
 });
 </script>
-
 </body>
 </html>
