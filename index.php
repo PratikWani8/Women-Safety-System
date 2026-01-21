@@ -8,7 +8,7 @@
 </head>
 <body>
 <header style="background: linear-gradient(135deg, #fbc2eb, #a18cd1);">
-    <h1 style="font-weight: 900;">Women Safety System</h1>
+    <h1 style="font-weight: 900;">Raksha - Women Safety System</h1>
     <p>Report • Respond • Protect</p>
 </header>
 <div class="card">
@@ -30,7 +30,7 @@
 </div>
 </div>
 <footer style="text-align:center; padding:15px; color:#666;">
-    © <?php echo date("Y"); ?> Women Safety System | Designed for Safety • Security • Empowerment for Women | All Rights Reserved.
+    © <?php echo date("Y"); ?> Raksha - Women Safety System | Designed for Safety • Security • Empowerment for Women | All Rights Reserved.
 </footer>
 </body>
 </html>
