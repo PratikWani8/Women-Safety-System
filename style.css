@@ -17,7 +17,6 @@ body {
   color: var(--text);
 }
 
-/* Header */
 header {
   background: var(--primary);
   color: white;
@@ -25,7 +24,6 @@ header {
   text-align: center;
 }
 
-/* Cards */
 .card {
   background: var(--card);
   max-width: 450px;
@@ -41,7 +39,6 @@ header {
   to { transform: translateY(0); opacity: 1 }
 }
 
-/* Inputs */
 input, textarea, select {
   width: 100%;
   padding: 12px;
@@ -50,7 +47,6 @@ input, textarea, select {
   border: 1px solid #ccc;
 }
 
-/* Buttons */
 button {
   width: 100%;
   padding: 12px;
@@ -87,7 +83,6 @@ img:hover {
     transform: scale(1.05);
 }
 
-/* Responsive */
 @media (max-width: 600px) {
   .card {
     margin: 20px;
