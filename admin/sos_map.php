@@ -4,10 +4,8 @@ if (!isset($_SESSION['admin'])) {
     header("Location: admin_login.php");
     exit;
 }
-
 $data = [];
 $res = $conn->query("SELECT * FROM emergency_sos ORDER BY sent_at DESC");
-
 while ($row = $res->fetch_assoc()) {
     if ($row['location']) {
         [$lat, $lng] = explode(",", $row['location']);
@@ -21,16 +19,13 @@ while ($row = $res->fetch_assoc()) {
     }
 }
 ?>
-
 <!DOCTYPE html>
 <html>
 <head>
     <title>SOS Map View</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
     <link rel="stylesheet" href="../style.css?v=6">
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
-
     <style>
         #map {
             height: 350px;
@@ -40,41 +35,29 @@ while ($row = $res->fetch_assoc()) {
         }
     </style>
 </head>
-
 <body>
-
 <header>
     <h2>🗺 SOS Location Map (Last 10 Minutes)</h2>
 </header>
-
 <div class="card">
     <div id="map"></div>
     <a href="sos_panel.php">
         <button>⬅ Back to SOS Panel</button>
     </a>
 </div>
-
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
-
 <script>
 const sosData = <?php echo json_encode($data); ?>;
-
 const TEN_MINUTES = 10 * 60 * 1000;
 const now = new Date().getTime();
-
 const map = L.map('map').setView([20.5937, 78.9629], 5);
-
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '© OpenStreetMap'
 }).addTo(map);
-
 sosData.forEach(s => {
-
     const sosTime = new Date(s.time).getTime();
     const age = now - sosTime;
-
     if (age > TEN_MINUTES) return;
-
     L.marker([s.lat, s.lng]).addTo(map)
         .bindPopup(`
             <b>🚨 SOS Alert</b><br>
@@ -82,9 +65,7 @@ sosData.forEach(s => {
             <small>${s.time}</small>
         `);
 });
-
 setTimeout(() => location.reload(), 30000);
 </script>
-
 </body>
 </html>
