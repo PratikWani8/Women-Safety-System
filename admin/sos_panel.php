@@ -47,7 +47,7 @@ function isWithinOneHour(sentTime) {
     const sentDate = new Date(sentTime);
     const now = new Date();
     const diffMinutes = (now - sentDate) / (1000 * 60);
-    return diffMinutes <= 60;
+    return diffMinutes <= 10;
 }
 function loadSOS() {
     fetch("fetch_sos.php")
@@ -77,7 +77,7 @@ function loadSOS() {
                 `;
             });
             if (visibleCount === 0) {
-                container.innerHTML = "<p>No active SOS alerts (older than 1 hour).</p>";
+                container.innerHTML = "<p>No active SOS alerts (older than 10 minutes).</p>";
             }
         });
 }
