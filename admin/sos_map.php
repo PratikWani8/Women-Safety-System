@@ -37,7 +37,7 @@ while ($row = $res->fetch_assoc()) {
 </head>
 <body>
 <header>
-    <h2>🗺 SOS Location Map (Last 10 Minutes)</h2>
+    <h2>🗺 SOS Location Map</h2>
 </header>
 <div class="card">
     <div id="map"></div>
@@ -52,7 +52,7 @@ const TEN_MINUTES = 10 * 60 * 1000;
 const now = new Date().getTime();
 const map = L.map('map').setView([20.5937, 78.9629], 5);
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-    attribution: '© OpenStreetMap'
+    attribution: '© Map'
 }).addTo(map);
 sosData.forEach(s => {
     const sosTime = new Date(s.time).getTime();
