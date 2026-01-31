@@ -31,7 +31,7 @@ if (isset($_POST['login'])) {
 <html lang="en">
 <head>
     <title>User Login</title>
-    <link rel="stylesheet" href="../style.css?v=3">
+    <link rel="stylesheet" href="../style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
@@ -48,7 +48,7 @@ if (isset($_POST['login'])) {
     <input type="password" name="password" placeholder="Enter password" required>
     <button type="submit" name="login">Login</button>
     <p style="text-align:center; margin-top:15px;">
-        New user? <a href="register.php">Register here</a>
+        New user? <a href="register.php" style="text-decoration: none;">Register here</a>
     </p>
 </form>
 </div>

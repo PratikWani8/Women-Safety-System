@@ -29,7 +29,7 @@
         <a href="index.php">Home</a>
         <a href="user/safety.php">Safety Tips</a>
         <a href="#">Report</a>
-        <a href="../auth/register.php">User</a>
+        <a href="auth/register.php">User</a>
         <a href="admin/admin_login.php">Admin</a>
       </nav>
 
@@ -60,7 +60,7 @@
 
     <div class="hero-buttons">
       <a href="auth/register.php">
-      <button class="primary-btn">Start</button>
+      <button class="primary-btn">Start ➞</button>
       </a>
       <a href="user/safety.php">
       <button class="secondary-btn">Safety Guide</button>
@@ -73,6 +73,16 @@
     © <?php echo date("Y"); ?> Raksha - Women Safety System | Designed for Safety • Security • Empowerment for Women | All Rights Reserved.
 </footer>
 
+<script>
+  const links = document.querySelectorAll("nav a");
+  const currentPage = window.location.pathname.split("/").pop();
+
+  links.forEach(link => {
+    if (link.getAttribute("href") === currentPage) {
+      link.classList.add("active");
+    }
+  });
+</script>
 
 </body>
 </html>

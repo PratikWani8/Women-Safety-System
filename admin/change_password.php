@@ -58,7 +58,9 @@ if (isset($_POST['change'])) {
 </head>
 <body>
 <header>
+    <div class="header-container">
     <h2>🔐 Change Admin Password</h2>
+    </div>
 </header>
 <div class="card">
 <form method="post">

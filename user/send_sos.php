@@ -25,7 +25,7 @@ if (isset($_POST['send'])) {
 <html>
 <head>
     <title>Send SOS</title>
-    <link rel="stylesheet" href="../style.css?v=3">
+    <link rel="stylesheet" href="../style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
         .pulse {

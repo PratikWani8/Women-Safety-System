@@ -54,7 +54,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['register'])) {
 <head>
     <title>User Registration</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../style.css?v=6">
+    <link rel="stylesheet" href="../style.css">
 </head>
 <body>
 <header>
@@ -76,7 +76,7 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['register'])) {
         <input type="password" name="confirm_password" placeholder="Re-enter password" required>
         <button type="submit" name="register">Register</button>
         <p style="text-align:center; margin-top:15px;">
-            Already registered? <a href="login.php">Login</a>
+            Already registered? <a href="login.php" style="text-decoration: none;">Login</a>
         </p>
     </form>
 </div>
