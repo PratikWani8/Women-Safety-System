@@ -69,10 +69,33 @@ nav a {
   text-decoration: none;
   color: #444;
   font-weight: 500;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+/* Hover underline animation */
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0%;
+  height: 2px;
+  background: #e91e63;
+  transition: width 0.3s ease;
 }
 
 nav a:hover {
   color: #e91e63;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+nav a.active {
+  color: #e91e63;
+  font-weight: 600;
 }
 
 .start-btn {
