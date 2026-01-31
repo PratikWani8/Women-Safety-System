@@ -14,7 +14,7 @@ $username = $user['name'];
 <html>
 <head>
     <title>User Dashboard</title>
-    <link rel="stylesheet" href="../style.css?v=2">
+    <link rel="stylesheet" href="../style.css?v=3">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>

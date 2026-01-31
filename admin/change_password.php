@@ -34,8 +34,27 @@ if (isset($_POST['change'])) {
 <html>
 <head>
     <title>Change Admin Password</title>
-    <link rel="stylesheet" href="../style.css?v=2">
+    <link rel="stylesheet" href="../style.css?v=3">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        #change-btn {
+  width: 100%;
+  padding: 12px;
+  margin-top: 15px;
+  border: none;
+  background: var(--danger);
+  color: white;
+  font-size: 16px;
+  border-radius: 25px;
+  cursor: pointer;
+  transition: transform 0.2s ease, background 0.3s;
+}
+
+#change-btn:hover {
+  background: #28a745;
+  transform: scale(1.03);
+}
+</style>
 </head>
 <body>
 <header>
@@ -52,7 +71,7 @@ if (isset($_POST['change'])) {
     <input type="password" name="new" required>
     <label>Confirm New Password</label>
     <input type="password" name="confirm" required>
-    <button name="change">Change Password</button>
+    <button name="change" id="change-btn">Change Password</button>
     <a href="dashboard.php">
         <button type="button">⬅ Back to Dashboard</button>
     </a>

@@ -91,7 +91,7 @@ echo "<script>alert('✅ Complaint submitted successfully');</script>";
     <button type="button" onclick="getLocation()">📍 Capture Live Location</button>
     <label>Upload Evidence (Image / Audio)</label>
     <input type="file" name="evidence" accept="image/*,audio/*">
-    <button type="submit" name="submit" style="background-color: #28a745; color: white; padding: 10px 20px; border: none; border-radius: 5px;">Submit Complaint</button>
+    <button type="submit" name="submit" style="background-color: #28a745; color: white; padding: 10px 20px; border: none; border-radius: 25px;">Submit Complaint</button>
 </form>
 <a href="dashboard.php"><button>⬅ Back to Dashboard</button></a>
 </div>
