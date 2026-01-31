@@ -78,7 +78,9 @@ echo "<script>alert('✅ Complaint submitted successfully');</script>";
 </head>
 <body>
 <header>
+    <div class="header-container">
     <h2>🚨 Report Safety Complaint</h2>
+    </div>
 </header>
 <div class="card">
 <form method="post" enctype="multipart/form-data">

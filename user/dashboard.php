@@ -14,12 +14,14 @@ $username = $user['name'];
 <html>
 <head>
     <title>User Dashboard</title>
-    <link rel="stylesheet" href="../style.css?v=3">
+    <link rel="stylesheet" href="../style.css?v=4">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
 <header>
+    <div class="header-container">
     <h2>👩 User Dashboard</h2>
+    </div>
 </header>
 <div class="card">
     <p>

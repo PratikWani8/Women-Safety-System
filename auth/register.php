@@ -54,11 +54,13 @@ if ($_SERVER["REQUEST_METHOD"] === "POST" && isset($_POST['register'])) {
 <head>
     <title>User Registration</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../style.css?v=3">
+    <link rel="stylesheet" href="../style.css?v=6">
 </head>
 <body>
 <header>
+    <div class="header-container">
     <h2>📝 User Registration</h2>
+    </div>
 </header>
 <div class="card">
     <form method="post" autocomplete="off">

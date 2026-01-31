@@ -37,7 +37,9 @@ while ($row = $res->fetch_assoc()) {
 </head>
 <body>
 <header>
+    <div class="header-container">
     <h2>🗺 SOS Location Map</h2>
+    <div class="header-container">
 </header>
 <div class="card">
     <div id="map"></div>

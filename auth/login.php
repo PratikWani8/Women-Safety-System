@@ -36,7 +36,9 @@ if (isset($_POST['login'])) {
 </head>
 <body>
 <header>
+    <div class="header-container">
     <h2>🔐 User Login</h2>
+    </div>
 </header>
 <div class="card">
 <form method="post" autocomplete="off">

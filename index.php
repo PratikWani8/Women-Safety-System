@@ -1,36 +1,78 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Women Safety System</title>
-    <link rel="stylesheet" href="style.css?v=3">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+  <title>Raksha - Women Safety</title>
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="index.css" />
 </head>
 <body>
-<header style="background: linear-gradient(135deg, #fbc2eb, #a18cd1);">
-    <h1 style="font-weight: 900;">Raksha - Women Safety System</h1>
-    <p>Report • Respond • Protect</p>
-</header>
-<div class="card">
-    <h2>Welcome!</h2>
+
+  <!-- Alert Banner -->
+  <div class="top-banner">
+    <p>🚨 Emergency Helpline: 112 | Women Helpline: 181</p>
+    <button>Get Help</button>
+  </div>
+
+  <!-- Navbar -->
+  <header>
+    <div class="nav-container">
+
+      <div class="logo">Raksha</div>
+
+      <nav>
+        <a href="index.php">Home</a>
+        <a href="user/safety.php">Safety Tips</a>
+        <a href="#">Report</a>
+        <a href="../auth/register.php">User</a>
+        <a href="admin/admin_login.php">Admin</a>
+      </nav>
+
+      <a href="auth/register.php">
+      <button class="start-btn">Start Protection</button>
+    </a>
+
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+
+    <div class="badge">
+      💖 Trusted by 10,000+ Women
+    </div>
+
+    <h1>
+      Your Personal Safety <br>
+      <span>Protection</span><br>
+      Companion
+    </h1>
+
     <p>
-        This platform allows women to report safety incidents, send emergency SOS alerts,
+      A smart platform for women to report safety incidents, send emergency SOS alerts,
         and track complaint status securely.
     </p>
-<div class="btn-group">
-    <a href="auth/register.php">
-        <button>📝 Register</button>
-    </a>
-    <a href="auth/login.php">
-        <button>🔐 User Login</button>
-    </a>
-    <a href="admin/admin_login.php">
-        <button class="danger">👮 Admin Login</button>
-    </a>
-</div>
-</div>
-<footer style="text-align:center; padding:15px; color:#666;">
+
+    <div class="hero-buttons">
+      <a href="auth/register.php">
+      <button class="primary-btn">Start</button>
+      </a>
+      <a href="user/safety.php">
+      <button class="secondary-btn">Safety Guide</button>
+      </a>
+    </div>
+
+  </section>
+
+  <footer style="text-align:center; padding:15px; color:#666; font-family: 'Segoe UI', sans-serif;">
     © <?php echo date("Y"); ?> Raksha - Women Safety System | Designed for Safety • Security • Empowerment for Women | All Rights Reserved.
 </footer>
+
+
 </body>
 </html>

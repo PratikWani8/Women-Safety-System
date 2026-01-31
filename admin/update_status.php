@@ -29,7 +29,9 @@ if(isset($_POST['update'])){
 </head>
 <body>
 <header>
+    <div class="header-container">
     <h2>🔄 Update Complaint Status</h2>
+    </div>
 </header>
 <div class="card">
 <form method="post">

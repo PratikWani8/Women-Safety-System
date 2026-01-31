@@ -40,7 +40,9 @@ if (isset($_POST['send'])) {
 </head>
 <body>
 <header>
+    <div class="header-container">
     <h2>🚨 Emergency SOS</h2>
+    </div>
 </header>
 <div class="card">
 <?php if ($success): ?>

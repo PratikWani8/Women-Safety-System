@@ -15,7 +15,9 @@ if(!isset($_SESSION['user_id'])){
 </head>
 <body>
 <header>
+    <div class="header-container">
     <h2>📄 Complaint Status</h2>
+    </div>
 </header>
 <div class="card">
 <?php
