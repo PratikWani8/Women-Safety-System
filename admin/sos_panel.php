@@ -26,7 +26,7 @@ if (!isset($_SESSION['admin'])) {
 <header>
     <div class="header-container">
     <h2>🚨 SOS Alert Panel (Live)</h2>
-    <div class="header-container">
+    </div>
 </header>
 <div class="card">
     <h3>Active SOS Alerts</h3>
