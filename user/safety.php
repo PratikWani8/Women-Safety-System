@@ -16,7 +16,9 @@
   <!-- Banner -->
   <div class="top-banner">
     <p>🚨 Emergency Helpline: 112 | Women Helpline: 181</p>
+    <a href="https://www.digitalindia.gov.in/initiative/ncw-womens-helpline">
     <button>Get Help</button>
+    </a>
   </div>
 
   <!-- Navbar -->
@@ -42,6 +44,8 @@
   <!-- Safety Tips Section -->
   <section class="hero">
 
+  <div class="hero-left">
+
     <div class="badge">
       📘 Stay Alert • Stay Safe • Stay Strong
     </div>
@@ -56,11 +60,20 @@
       and stay confident in every situation.
     </p>
 
+    <a href="#tips">
+      <button class="primary-btn">Get Started ➞</button>
+      </a>
+    </div>
+
+    <div class="hero-right">
+      <img src="../assets/safety.png" alt="Safety Tips Illustration">
+    </div>
+
   </section>
 
 
   <!-- Tips Cards -->
-  <section class="tips-container">
+  <section class="tips-container" id="tips">
 
     <div class="tip-card">
       <h3>📱 Keep Emergency Contacts</h3>
