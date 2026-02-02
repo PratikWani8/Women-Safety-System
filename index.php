@@ -16,7 +16,9 @@
   <!-- Alert Banner -->
   <div class="top-banner">
     <p>🚨 Emergency Helpline: 112 | Women Helpline: 181</p>
+    <a href="https://www.digitalindia.gov.in/initiative/ncw-womens-helpline">
     <button>Get Help</button>
+    </a>
   </div>
 
   <!-- Navbar -->
@@ -43,6 +45,8 @@
   <!-- Hero Section -->
   <section class="hero">
 
+  <div class="hero-left">
+
     <div class="badge">
       💖 Trusted by 10,000+ Women
     </div>
@@ -65,6 +69,11 @@
       <a href="user/safety.php">
       <button class="secondary-btn">Safety Guide</button>
       </a>
+    </div>
+    </div>
+
+     <div class="hero-right">
+    <img src="assets/hero_img.png" alt="Website Preview">
     </div>
 
   </section>
