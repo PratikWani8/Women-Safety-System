@@ -29,8 +29,8 @@
 
       <nav>
         <a href="index.php">Home</a>
-        <a href="user/safety.php">Safety Tips</a>
-        <a href="#">Report</a>
+        <a href="pages/safety.php">Safety Tips</a>
+        <a href="pages/police.php">Nearby Police</a>
         <a href="auth/register.php">User</a>
         <a href="admin/admin_login.php">Admin</a>
       </nav>
@@ -66,7 +66,7 @@
       <a href="auth/register.php">
       <button class="primary-btn">Start ➞</button>
       </a>
-      <a href="user/safety.php">
+      <a href="pages/safety.php">
       <button class="secondary-btn">Safety Guide</button>
       </a>
     </div>
