@@ -3,30 +3,20 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-
-  <title>Raksha - Women Safety</title>
-
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-
+  <title>Raksha</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="index.css" />
 </head>
 <body>
-
-  <!-- Alert Banner -->
   <div class="top-banner">
     <p>🚨 Emergency Helpline: 112 | Women Helpline: 181</p>
     <a href="https://www.digitalindia.gov.in/initiative/ncw-womens-helpline">
     <button>Get Help</button>
     </a>
   </div>
-
-  <!-- Navbar -->
   <header>
     <div class="nav-container">
-
       <div class="logo">Raksha</div>
-
       <nav>
         <a href="index.php">Home</a>
         <a href="pages/safety.php">Safety Tips</a>
@@ -38,15 +28,10 @@
       <a href="auth/register.php">
       <button class="start-btn">Start Protection</button>
     </a>
-
     </div>
   </header>
-
-  <!-- Hero Section -->
   <section class="hero">
-
   <div class="hero-left">
-
     <div class="badge">
       💖 Trusted by 10,000+ Women
     </div>
