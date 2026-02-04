@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-  <title>Safety Tips - SafeHer</title>
+  <title>Safety Tips - Raksha</title>
 
   <!-- Google Font -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -15,8 +15,8 @@
 
   <!-- Banner -->
   <div class="top-banner">
-    <p>🚨 Emergency Helpline: 112 | Women Helpline: 181</p>
-    <a href="https://www.digitalindia.gov.in/initiative/ncw-womens-helpline">
+    <p>🚨 Emergency Helpline: 112 | Women Helpline: 181 | Need Help Urgently?</p>
+    <a href="../user/non_reg_sos.php">
     <button>Get Help</button>
     </a>
   </div>

@@ -9,7 +9,7 @@ if (!isset($_SESSION['admin'])) {
 <!DOCTYPE html>
 <html>
 <head>
-    <title>SOS Alerts</title>
+    <title>SOS Alerts - Raksha</title>
     <link rel="stylesheet" href="../style.css?v=6">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>
@@ -66,7 +66,36 @@ function loadSOS() {
             data.forEach(s => {
                 if (!isWithinOneHour(s.sent_at)) return;
                 visibleCount++;
-                container.innerHTML += `
+
+                // test 
+        let userInfo = "";
+
+if (s.type === "Registered") {
+    userInfo = `
+        <b>User:</b> ${s.name}<br>
+        <b>Phone:</b> ${s.phone}<br>
+    `;
+} else {
+    userInfo = `
+        <b>User:</b> Guest User<br>
+    `;
+}
+
+container.innerHTML += `
+<div class="card sos-alert">
+<p>
+<b>SOS ID:</b> ${s.sos_id}<br>
+${userInfo}
+<b>Message:</b> ${s.message}<br>
+<b>Location:</b> ${s.location}<br>
+<small>${s.sent_at}</small>
+</p>
+</div>
+`;
+
+// test over
+               
+/*container.innerHTML += `
                     <div class="card sos-alert">
                         <p>
                             <b>User:</b> ${s.name}<br>
@@ -76,7 +105,7 @@ function loadSOS() {
                             <small>${s.sent_at}</small>
                         </p>
                     </div>
-                `;
+                `; */
             });
             if (visibleCount === 0) {
                 container.innerHTML = "<p>No active SOS alerts (older than 10 minutes).</p>";

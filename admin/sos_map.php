@@ -22,7 +22,7 @@ while ($row = $res->fetch_assoc()) {
 <!DOCTYPE html>
 <html>
 <head>
-    <title>SOS Map View</title>
+    <title>SOS Map View - Raksha</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../style.css?v=6">
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>

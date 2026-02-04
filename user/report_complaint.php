@@ -73,7 +73,7 @@ echo "<script>alert('✅ Complaint submitted successfully');</script>";
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Report Complaint</title>
+    <title>Report Complaint - Raksha</title>
     <link rel="stylesheet" href="../style.css">
 </head>
 <body>

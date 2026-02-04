@@ -10,7 +10,7 @@ if (!isset($_SESSION['admin'])) {
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Admin Dashboard</title>
+<title>Admin Dashboard - Raksha</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <link rel="stylesheet" href="admin_dashboard.css">
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>

@@ -24,7 +24,7 @@ if (isset($_POST['send'])) {
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Send SOS</title>
+    <title>Send SOS - Raksha</title>
     <link rel="stylesheet" href="../style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <style>

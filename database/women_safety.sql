@@ -37,3 +37,10 @@ CREATE TABLE emergency_sos (
     message TEXT,
     sent_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
+CREATE TABLE non_reg_sos (
+    sos_id INT AUTO_INCREMENT PRIMARY KEY,
+    location VARCHAR(255),
+    message TEXT,
+    sent_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

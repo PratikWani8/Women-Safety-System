@@ -13,7 +13,7 @@ $username = $user['name'];
 <!DOCTYPE html>
 <html>
 <head>
-    <title>User Dashboard</title>
+    <title>User Dashboard - Raksha</title>
     <link rel="stylesheet" href="../style.css?v=4">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
