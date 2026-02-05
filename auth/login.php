@@ -33,6 +33,16 @@ if (isset($_POST['login'])) {
     <title>User Login - Raksha</title>
     <link rel="stylesheet" href="../style.css">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+    .hero-container {
+        text-align: center;
+        color: black;
+        padding: 5px;
+        text-align: center;
+        font-family: 'Poppins', sans-serif;
+        margin-top: 20px;
+    }
+    </style>
 </head>
 <body>
 <header>
@@ -40,6 +50,10 @@ if (isset($_POST['login'])) {
     <h2>🔐 User Login</h2>
     </div>
 </header>
+<div class="hero-container">
+    <h2>Welcome Back!</h2>
+    <p>Login to access your account and stay protected with Raksha.</p>
+    </div>
 <div class="card">
 <form method="post" autocomplete="off">
     <label>Email</label>

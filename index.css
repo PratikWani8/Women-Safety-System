@@ -272,3 +272,138 @@ nav a.active {
     flex-direction: column;
   }
 }
+
+/* ================= How Raksha Works ================= */
+
+  .how-it-works * {
+  box-sizing: border-box;
+}
+
+  .how-it-works {
+  width: 100%;
+  background-color: #ffffff;
+  margin: 0;
+  padding: 100px 20px;
+  text-align: center;
+  display: block;
+}
+
+
+.how-it-works h2 {
+  font-size: 35px;
+  color: #e91e63;
+  margin-bottom: 15px;
+}
+
+.how-desc {
+  color: #666;
+  font-size: 16px;
+  max-width: 700px;
+  margin: 0 auto 50px;
+  line-height: 1.6;
+}
+
+.steps-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 25px;
+}
+
+.step-card {
+  background: white;
+  border: 1.5px solid #e91e63;
+  border-radius: 18px;
+  padding: 30px 22px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+  transition: transform 0.3s ease;
+}
+
+.step-card:hover {
+  transform: translateY(-6px);
+}
+
+.step-card span {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  background: #e91e63;
+  color: white;
+  font-weight: 700;
+  border-radius: 50%;
+  line-height: 40px;
+  margin-bottom: 15px;
+  font-size: 18px;
+}
+
+.step-card h3 {
+  color: #e91e63;
+  font-size: 18px;
+  margin-bottom: 10px;
+}
+
+.step-card p {
+  color: #555;
+  font-size: 15px;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .how-it-works {
+    margin: 60px auto;
+  }
+}
+
+/* ================= Reviews Section ================= */
+
+.reviews-section {
+  width: 100%;
+  background: linear-gradient(135deg, #0a3cff, #1e90ff);
+  padding: 100px 20px;
+  text-align: center;
+}
+
+.reviews-section h2 {
+  color: white;
+  font-size: 35px;
+  margin-bottom: 60px;
+}
+
+.reviews-section .swiper {
+  width: 100%;
+  padding: 20px 0;
+}
+
+.review-card {
+  width: 280px !important;
+  background: white;
+  border-radius: 18px;
+  padding: 25px 20px;
+  text-align: center;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+}
+
+.review-card img {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+  border: 3px solid #1e90ff;
+  object-fit: cover;
+  margin-bottom: 12px;
+}
+
+.review-card h4 {
+  color: #1e90ff;
+  font-size: 16px;
+  margin-bottom: 6px;
+}
+
+.review-card p {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.6;
+  margin-bottom: 8px;
+}
+
+.swiper-wrapper {
+  transition-timing-function: linear !important;
+}

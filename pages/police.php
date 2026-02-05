@@ -24,7 +24,6 @@
 
 <body>
 
-<!-- Top Banner -->
 <div class="top-banner">
  <p>🚨 Emergency Helpline: 112 | Women Helpline: 181 | Need Help Urgently?</p>
     <a href="../user/non_reg_sos.php">
@@ -32,7 +31,6 @@
     </a>
 </div>
 
-<!-- Navbar -->
 <header>
 <div class="nav-container">
   <div class="logo">Raksha</div>
@@ -51,7 +49,6 @@
 </div>
 </header>
 
-<!-- Hero Section -->
 <section class="hero">
 
 <div class="hero-left">
@@ -84,7 +81,6 @@
 
 </section>
 
-<!-- Map Section -->
 <section class="map-section" id="map-section">
 
 <h2>📍 Police Stations Near You</h2>
@@ -99,13 +95,11 @@
 
 </section>
 
-<!-- Footer -->
-<footer style="text-align:center; padding:15px; color:#666; font-family:'Segoe UI',sans-serif;">
-© <?php echo date("Y"); ?> Raksha - Women Safety System | All Rights Reserved.
+<footer style="text-align:center; padding:15px; color:#666; background:white; margin-top:30px;">
+  © <?php echo date("Y"); ?> Raksha - Women Safety System | Designed for Safety • Security • Empowerment for Women | All Rights Reserved.
 </footer>
 
 
-<!-- Scripts -->
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 <script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
 

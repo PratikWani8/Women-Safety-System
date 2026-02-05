@@ -5,69 +5,350 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Raksha Women Safety System</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
   <link rel="stylesheet" href="index.css" />
   <link rel="icon" href="assets/favicon.jpg" type="image/x-icon" />
 </head>
+
 <body>
-  <div class="top-banner">
-    <p>🚨 Emergency Helpline: 112 | Women Helpline: 181 | Need Help Urgently?</p>
-    <a href="user/non_reg_sos.php">
+
+<div class="top-banner">
+  <p>🚨 Emergency Helpline: 112 | Women Helpline: 181 | Need Help Urgently?</p>
+  <a href="user/non_reg_sos.php">
     <button>Get Help</button>
-    </a>
-  </div>
-  <header>
-    <div class="nav-container">
-      <div class="logo">Raksha</div>
-      <nav>
-        <a href="index.php">Home</a>
-        <a href="pages/safety.php">Safety Tips</a>
-        <a href="pages/police.php">Nearby Police</a>
-        <a href="auth/register.php">User</a>
-        <a href="admin/admin_login.php">Admin</a>
-      </nav>
-      <a href="auth/register.php">
+  </a>
+</div>
+
+<header>
+  <div class="nav-container">
+    <div class="logo">Raksha</div>
+
+    <nav>
+      <a href="index.php">Home</a>
+      <a href="pages/safety.php">Safety Tips</a>
+      <a href="pages/police.php">Nearby Police</a>
+      <a href="auth/register.php">User</a>
+      <a href="admin/admin_login.php">Admin</a>
+    </nav>
+
+    <a href="auth/register.php">
       <button class="start-btn">Start Protection</button>
     </a>
-    </div>
-  </header>
-  <section class="hero">
+  </div>
+</header>
+
+<section class="hero">
+
   <div class="hero-left">
-    <div class="badge">
-      💖 Trusted by 10,000+ Women
-    </div>
+
+    <div class="badge">💖 Trusted by 10,000+ Women</div>
+
     <h1>
       Your Personal Safety <br>
       <span>Protection</span><br>
       Companion
     </h1>
+
     <p>
       A smart platform for women to report safety incidents, send emergency SOS alerts,
-        and track complaint status securely.
+      and track complaint status securely.
     </p>
+
     <div class="hero-buttons">
       <a href="auth/register.php">
-      <button class="primary-btn">Start ➞</button>
+        <button class="primary-btn">Start ➞</button>
       </a>
+
       <a href="pages/safety.php">
-      <button class="secondary-btn">Safety Guide</button>
+        <button class="secondary-btn">Safety Guide</button>
       </a>
     </div>
-    </div>
-     <div class="hero-right">
+
+  </div>
+
+  <div class="hero-right">
     <img src="assets/hero_img.png" alt="Website Preview">
+  </div>
+
+</section>
+
+<!-- ================= How Raksha Works ================= -->
+
+<section class="how-it-works">
+
+  <h2>How Raksha Works</h2>
+  <p class="how-desc">
+    Raksha is designed to protect women in emergency situations using smart technology and quick response systems.
+  </p>
+
+  <div class="steps-container">
+
+    <!-- Step 1 -->
+    <div class="step-card">
+      <span>1</span>
+      <h3>Register & Login</h3>
+      <p>
+        Create your account and securely login to access all safety features of Raksha.
+      </p>
     </div>
-  </section>
-  <footer style="text-align:center; padding:15px; color:#666; font-family: 'Segoe UI', sans-serif;">
-    © <?php echo date("Y"); ?> Raksha - Women Safety System | Designed for Safety • Security • Empowerment for Women | All Rights Reserved.
+
+    <!-- Step 2 -->
+    <div class="step-card">
+      <span>2</span>
+      <h3>Activate SOS</h3>
+      <p>
+        In case of danger, press the SOS button to send instant emergency alerts.
+      </p>
+    </div>
+
+    <!-- Step 3 -->
+    <div class="step-card">
+      <span>3</span>
+      <h3>Share Location</h3>
+      <p>
+        Your live location is shared with police, guardians, and trusted contacts.
+      </p>
+    </div>
+
+    <!-- Step 4 -->
+    <div class="step-card">
+      <span>4</span>
+      <h3>Get Immediate Help</h3>
+      <p>
+        Authorities and support teams respond quickly to ensure your safety.
+      </p>
+    </div>
+
+  </div>
+
+</section>
+
+
+<section class="reviews-section">
+
+  <h2>What Our Users Say</h2>
+
+  <!-- First Slider -->
+  <div class="swiper reviewSwiper1">
+
+    <div class="swiper-wrapper">
+
+      <div class="swiper-slide review-card">
+        <img src="https://randomuser.me/api/portraits/women/45.jpg">
+        <h4>Dr. Anjali Sharma</h4>
+        <p>"Very reliable safety platform."</p>
+        ⭐⭐⭐⭐
+      </div>
+
+      <div class="swiper-slide review-card">
+        <img src="https://randomuser.me/api/portraits/women/52.jpg">
+        <h4>Neha Patil</h4>
+        <p>"Excellent protection system."</p>
+        ⭐⭐⭐⭐⭐
+      </div>
+
+      <div class="swiper-slide review-card">
+        <img src="https://randomuser.me/api/portraits/women/61.jpg">
+        <h4>Ritu Mehta</h4>
+        <p>"Helpful in emergency situations."</p>
+        ⭐⭐⭐⭐⭐
+      </div>
+
+      <div class="swiper-slide review-card">
+        <img src="https://randomuser.me/api/portraits/women/67.jpg">
+        <h4>Kavita Rao</h4>
+        <p>"Highly recommended."</p>
+        ⭐⭐⭐⭐
+      </div>
+
+      <div class="swiper-slide review-card">
+        <img src="https://randomuser.me/api/portraits/men/40.jpg">
+        <h4>Rohit Verma</h4>
+        <p>"Modern safety solution."</p>
+        ⭐⭐⭐⭐⭐
+      </div>
+
+      <div class="swiper-slide review-card">
+        <img src="https://randomuser.me/api/portraits/women/72.jpg">
+        <h4>Pooja Kulkarni</h4>
+        <p>"Very useful platform."</p>
+        ⭐⭐⭐⭐⭐
+      </div>
+
+      <div class="swiper-slide review-card">
+        <img src="https://randomuser.me/api/portraits/men/55.jpg">
+        <h4>Amit Joshi</h4>
+        <p>"Simple and effective."</p>
+        ⭐⭐⭐⭐⭐
+      </div>
+
+      <div class="swiper-slide review-card">
+        <img src="https://randomuser.me/api/portraits/men/62.jpg">
+        <h4>Sandeep Singh</h4>
+        <p>"Great initiative."</p>
+        ⭐⭐⭐⭐⭐
+      </div>
+
+      <div class="swiper-slide review-card">
+  <img src="https://randomuser.me/api/portraits/women/11.jpg">
+  <h4>Priya Malhotra</h4>
+  <p>"Raksha is very trustworthy."</p>
+  ⭐⭐⭐⭐⭐
+</div>
+
+<div class="swiper-slide review-card">
+  <img src="https://randomuser.me/api/portraits/women/12.jpg">
+  <h4>Shreya Kulkarni</h4>
+  <p>"The emergency alert is fast."</p>
+  ⭐⭐⭐⭐⭐
+</div>
+
+    </div>
+
+  </div>
+
+
+  <!-- Second Slider  -->
+  <div class="swiper reviewSwiper2">
+
+    <div class="swiper-wrapper">
+
+      <div class="swiper-slide review-card">
+        <img src="https://randomuser.me/api/portraits/men/40.jpg">
+        <h4>Rohit Verma</h4>
+        <p>"Modern safety solution."</p>
+        ⭐⭐⭐⭐⭐
+      </div>
+
+      <div class="swiper-slide review-card">
+        <img src="https://randomuser.me/api/portraits/women/72.jpg">
+        <h4>Pooja Kulkarni</h4>
+        <p>"Very useful platform."</p>
+        ⭐⭐⭐⭐⭐
+      </div>
+
+      <div class="swiper-slide review-card">
+        <img src="https://randomuser.me/api/portraits/men/55.jpg">
+        <h4>Amit Joshi</h4>
+        <p>"Simple and effective."</p>
+        ⭐⭐⭐⭐⭐
+      </div>
+
+      <div class="swiper-slide review-card">
+        <img src="https://randomuser.me/api/portraits/men/62.jpg">
+        <h4>Sandeep Singh</h4>
+        <p>"Great initiative."</p>
+        ⭐⭐⭐⭐⭐
+      </div>
+
+      <div class="swiper-slide review-card">
+        <img src="https://randomuser.me/api/portraits/women/45.jpg">
+        <h4>Dr. Anjali Sharma</h4>
+        <p>"Very reliable safety platform."</p>
+        ⭐⭐⭐⭐
+      </div>
+
+      <div class="swiper-slide review-card">
+        <img src="https://randomuser.me/api/portraits/women/52.jpg">
+        <h4>Neha Patil</h4>
+        <p>"Excellent protection system."</p>
+        ⭐⭐⭐⭐⭐
+      </div>
+
+      <div class="swiper-slide review-card">
+        <img src="https://randomuser.me/api/portraits/women/61.jpg">
+        <h4>Ritu Mehta</h4>
+        <p>"Helpful in emergency situations."</p>
+        ⭐⭐⭐⭐⭐
+      </div>
+
+      <div class="swiper-slide review-card">
+        <img src="https://randomuser.me/api/portraits/women/67.jpg">
+        <h4>Kavita Rao</h4>
+        <p>"Highly recommended."</p>
+        ⭐⭐⭐⭐
+      </div>
+
+      <div class="swiper-slide review-card">
+  <img src="https://randomuser.me/api/portraits/women/11.jpg">
+  <h4>Priya Malhotra</h4>
+  <p>"Raksha is very trustworthy."</p>
+  ⭐⭐⭐⭐⭐
+</div>
+
+<div class="swiper-slide review-card">
+  <img src="https://randomuser.me/api/portraits/women/12.jpg">
+  <h4>Shreya Kulkarni</h4>
+  <p>"The emergency alert is fast."</p>
+  ⭐⭐⭐⭐⭐
+</div>
+
+    </div>
+
+  </div>
+
+</section>
+
+<footer style="text-align:center; padding:15px; color:#666;">
+  © <?php echo date("Y"); ?> Raksha - Women Safety System | Designed for Safety • Security • Empowerment for Women | All Rights Reserved.
 </footer>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
 <script>
-  const links = document.querySelectorAll("nav a");
+document.addEventListener("DOMContentLoaded", function () {
+
+  // First Slider 
+  new Swiper(".reviewSwiper1", {
+
+    loop: true,
+    slidesPerView: "auto",
+    spaceBetween: 25,
+
+    speed: 8000,
+
+    autoplay: {
+      delay: 0,
+      disableOnInteraction: false,
+      reverseDirection: true,
+    },
+
+    freeMode: true,
+    freeModeMomentum: false,
+  });
+
+
+  // Second Slider 
+  new Swiper(".reviewSwiper2", {
+
+    loop: true,
+    slidesPerView: "auto",
+    spaceBetween: 25,
+
+    speed: 8000,
+
+    autoplay: {
+      delay: 0,
+      disableOnInteraction: false,
+      reverseDirection: false,
+    },
+
+    freeMode: true,
+    freeModeMomentum: false,
+  });
+
+});
+
+const links = document.querySelectorAll("nav a");
   const currentPage = window.location.pathname.split("/").pop();
+
   links.forEach(link => {
     if (link.getAttribute("href") === currentPage) {
       link.classList.add("active");
     }
   });
+
 </script>
+
 </body>
 </html>

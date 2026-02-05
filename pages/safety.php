@@ -129,8 +129,8 @@
 
   </section>
 
-   <footer style="text-align:center; padding:15px; color:#666; font-family: 'Segoe UI', sans-serif;">
-    © <?php echo date("Y"); ?> Raksha - Women Safety System | Designed for Safety • Security • Empowerment for Women | All Rights Reserved.
+   <footer style="text-align:center; padding:15px; color:#666; background:white; margin-top:30px;">
+  © <?php echo date("Y"); ?> Raksha - Women Safety System | Designed for Safety • Security • Empowerment for Women | All Rights Reserved.
 </footer>
 
 <script>
