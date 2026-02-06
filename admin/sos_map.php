@@ -8,7 +8,6 @@ if (!isset($_SESSION['admin'])) {
 
 $data = [];
 
-/* FETCH BOTH REGISTERED + GUEST SOS */
 $query = "
 
 SELECT 
@@ -113,22 +112,17 @@ const sosData = <?php echo json_encode($data); ?>;
 const TEN_MINUTES = 10 * 60 * 1000;
 const now = new Date().getTime();
 
-/* INIT MAP */
 const map = L.map('map').setView([20.5937, 78.9629], 5);
 
-/* LOAD MAP TILES */
 L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
     attribution: '© OpenStreetMap'
 }).addTo(map);
 
-
-/* ADD MARKERS */
 sosData.forEach(s => {
 
     const sosTime = new Date(s.time).getTime();
     const age = now - sosTime;
 
-    /* SHOW ONLY LAST 10 MIN SOS */
     if (age > TEN_MINUTES) return;
 
     L.marker([s.lat, s.lng]).addTo(map)
@@ -140,8 +134,6 @@ sosData.forEach(s => {
 
 });
 
-
-/* AUTO REFRESH EVERY 30 SEC */
 setTimeout(() => location.reload(), 30000);
 
 </script>
