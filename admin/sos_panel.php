@@ -67,7 +67,6 @@ function loadSOS() {
                 if (!isWithinOneHour(s.sent_at)) return;
                 visibleCount++;
 
-                // test 
         let userInfo = "";
 
 if (s.type === "Registered") {
@@ -92,20 +91,6 @@ ${userInfo}
 </p>
 </div>
 `;
-
-// test over
-               
-/*container.innerHTML += `
-                    <div class="card sos-alert">
-                        <p>
-                            <b>User:</b> ${s.name}<br>
-                            <b>Phone:</b> ${s.phone}<br>
-                            <b>Message:</b> ${s.message}<br>
-                            <b>Location:</b> ${s.location}<br>
-                            <small>${s.sent_at}</small>
-                        </p>
-                    </div>
-                `; */
             });
             if (visibleCount === 0) {
                 container.innerHTML = "<p>No active SOS alerts (older than 10 minutes).</p>";
