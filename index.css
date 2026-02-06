@@ -97,6 +97,14 @@ nav a.active {
   font-weight: 600;
 }
 
+.menu-toggle {
+  display: none;
+  font-size: 26px;
+  cursor: pointer;
+  color: #e91e63;
+}
+
+
 .start-btn {
   background: #e91e63;
   color: white;
@@ -117,6 +125,10 @@ nav a.active {
 
 .hero-left {
   max-width: 600px;
+  opacity: 0;
+  transform: translateY(40px);
+  animation: fadeUp 1s ease forwards;
+  
 }
 
 .badge {
@@ -186,10 +198,23 @@ nav a.active {
   color: white;
 }
 
+.hero-right {
+   opacity: 0;
+  transform: translateY(40px);
+  animation: fadeUp 1s ease forwards;
+  animation-delay: 0.3s;
+}
+
 .hero-right img {
   width: 450px;
   max-width: 100%;
   filter: drop-shadow(0 6px 10px rgba(0,0,0,0.4));
+  transition: 0.35s ease;
+}
+
+.hero-right img:hover {
+  transform: scale(1.05);
+
 }
 
 .tips-container {
@@ -252,10 +277,44 @@ nav a.active {
   margin-top: 20px;
 }
 
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @media (max-width: 768px) {
 
+  .menu-toggle {
+    display: block;
+  }
+
   nav {
-    display: none;
+    position: absolute;
+    top: 70px;
+    left: 0;
+    width: 100%;
+    background: white;
+    flex-direction: column;
+    text-align: center;
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+
+    max-height: 0;
+    overflow: hidden;
+
+    transition: all 0.4s ease;
+  }
+  
+  nav.active {
+    max-height: 300px;
+    padding: 15px 0;
+  }
+
+  nav a {
+    padding: 12px 0;
+    display: block;
   }
 
   .hero {
@@ -270,6 +329,14 @@ nav a.active {
 
   .hero-buttons {
     flex-direction: column;
+  }
+
+  .start-btn {
+    display: none;
+  }
+
+  .hero-right img {
+    display: none;
   }
 }
 

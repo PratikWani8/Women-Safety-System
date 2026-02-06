@@ -4,6 +4,22 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Raksha Women Safety System</title>
+
+  <!-- META TAGS -->
+<meta name="title" content="Raksha - Women Safety & Emergency Protection System">
+<meta name="description" content="Raksha is a smart women safety platform for SOS alerts, emergency support, live location sharing, and nearby police assistance. Stay safe, stay empowered.">
+
+<meta name="keywords" content="women safety, SOS alert system, emergency help for women, Raksha safety app, women security platform">
+
+<meta name="author" content="Raksha Team">
+<meta name="robots" content="index, follow">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Raksha - Women Safety & Emergency Protection System">
+<meta property="og:description" content="Smart platform for women's safety with instant SOS alerts, live tracking, and police support.">
+
+<meta name="theme-color" content="#e91e63">
+
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
   <link rel="stylesheet" href="index.css" />
@@ -23,13 +39,17 @@
   <div class="nav-container">
     <div class="logo">Raksha</div>
 
-    <nav>
-      <a href="index.php">Home</a>
-      <a href="pages/safety.php">Safety Tips</a>
-      <a href="pages/police.php">Nearby Police</a>
-      <a href="auth/register.php">User</a>
-      <a href="admin/admin_login.php">Admin</a>
-    </nav>
+    <div class="menu-toggle" id="menu-toggle">
+  ☰
+</div>
+
+<nav id="nav-menu">
+  <a href="index.php">Home</a>
+  <a href="pages/safety.php">Safety Tips</a>
+  <a href="pages/police.php">Nearby Police</a>
+  <a href="auth/register.php">User</a>
+  <a href="admin/admin_login.php">Admin</a>
+</nav>
 
     <a href="auth/register.php">
       <button class="start-btn">Start Protection</button>
@@ -67,7 +87,7 @@
   </div>
 
   <div class="hero-right">
-    <img src="assets/hero_img.png" alt="Website Preview">
+    <img src="assets/hero_img.png" alt="Hero Image">
   </div>
 
 </section>
@@ -134,70 +154,70 @@
     <div class="swiper-wrapper">
 
       <div class="swiper-slide review-card">
-        <img src="https://randomuser.me/api/portraits/women/45.jpg">
+        <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="User Review">
         <h4>Dr. Anjali Sharma</h4>
         <p>"Very reliable safety platform."</p>
         ⭐⭐⭐⭐
       </div>
 
       <div class="swiper-slide review-card">
-        <img src="https://randomuser.me/api/portraits/women/52.jpg">
+        <img src="https://randomuser.me/api/portraits/women/52.jpg" alt="User Review">
         <h4>Neha Patil</h4>
         <p>"Excellent protection system."</p>
         ⭐⭐⭐⭐⭐
       </div>
 
       <div class="swiper-slide review-card">
-        <img src="https://randomuser.me/api/portraits/women/61.jpg">
+        <img src="https://randomuser.me/api/portraits/women/61.jpg" alt="User Review">
         <h4>Ritu Mehta</h4>
         <p>"Helpful in emergency situations."</p>
         ⭐⭐⭐⭐⭐
       </div>
 
       <div class="swiper-slide review-card">
-        <img src="https://randomuser.me/api/portraits/women/67.jpg">
+        <img src="https://randomuser.me/api/portraits/women/67.jpg" alt="User Review">
         <h4>Kavita Rao</h4>
         <p>"Highly recommended."</p>
         ⭐⭐⭐⭐
       </div>
 
       <div class="swiper-slide review-card">
-        <img src="https://randomuser.me/api/portraits/men/40.jpg">
+        <img src="https://randomuser.me/api/portraits/men/40.jpg" alt="User Review">
         <h4>Rohit Verma</h4>
         <p>"Modern safety solution."</p>
         ⭐⭐⭐⭐⭐
       </div>
 
       <div class="swiper-slide review-card">
-        <img src="https://randomuser.me/api/portraits/women/72.jpg">
+        <img src="https://randomuser.me/api/portraits/women/72.jpg" alt="User Review">
         <h4>Pooja Kulkarni</h4>
         <p>"Very useful platform."</p>
         ⭐⭐⭐⭐⭐
       </div>
 
       <div class="swiper-slide review-card">
-        <img src="https://randomuser.me/api/portraits/men/55.jpg">
+        <img src="https://randomuser.me/api/portraits/men/55.jpg" alt="User Review">
         <h4>Amit Joshi</h4>
         <p>"Simple and effective."</p>
         ⭐⭐⭐⭐⭐
       </div>
 
       <div class="swiper-slide review-card">
-        <img src="https://randomuser.me/api/portraits/men/62.jpg">
+        <img src="https://randomuser.me/api/portraits/men/62.jpg" alt="User Review">
         <h4>Sandeep Singh</h4>
         <p>"Great initiative."</p>
         ⭐⭐⭐⭐⭐
       </div>
 
       <div class="swiper-slide review-card">
-  <img src="https://randomuser.me/api/portraits/women/11.jpg">
+  <img src="https://randomuser.me/api/portraits/women/11.jpg" alt="User Review">
   <h4>Priya Malhotra</h4>
   <p>"Raksha is very trustworthy."</p>
   ⭐⭐⭐⭐⭐
 </div>
 
 <div class="swiper-slide review-card">
-  <img src="https://randomuser.me/api/portraits/women/12.jpg">
+  <img src="https://randomuser.me/api/portraits/women/12.jpg" alt="User Review">
   <h4>Shreya Kulkarni</h4>
   <p>"The emergency alert is fast."</p>
   ⭐⭐⭐⭐⭐
@@ -214,70 +234,70 @@
     <div class="swiper-wrapper">
 
       <div class="swiper-slide review-card">
-        <img src="https://randomuser.me/api/portraits/men/40.jpg">
+        <img src="https://randomuser.me/api/portraits/men/40.jpg" alt="User Review">
         <h4>Rohit Verma</h4>
         <p>"Modern safety solution."</p>
         ⭐⭐⭐⭐⭐
       </div>
 
       <div class="swiper-slide review-card">
-        <img src="https://randomuser.me/api/portraits/women/72.jpg">
+        <img src="https://randomuser.me/api/portraits/women/72.jpg" alt="User Review">
         <h4>Pooja Kulkarni</h4>
         <p>"Very useful platform."</p>
         ⭐⭐⭐⭐⭐
       </div>
 
       <div class="swiper-slide review-card">
-        <img src="https://randomuser.me/api/portraits/men/55.jpg">
+        <img src="https://randomuser.me/api/portraits/men/55.jpg" alt="User Review">
         <h4>Amit Joshi</h4>
         <p>"Simple and effective."</p>
         ⭐⭐⭐⭐⭐
       </div>
 
       <div class="swiper-slide review-card">
-        <img src="https://randomuser.me/api/portraits/men/62.jpg">
+        <img src="https://randomuser.me/api/portraits/men/62.jpg" alt="User Review">
         <h4>Sandeep Singh</h4>
         <p>"Great initiative."</p>
         ⭐⭐⭐⭐⭐
       </div>
 
       <div class="swiper-slide review-card">
-        <img src="https://randomuser.me/api/portraits/women/45.jpg">
+        <img src="https://randomuser.me/api/portraits/women/45.jpg" alt="User Review">
         <h4>Dr. Anjali Sharma</h4>
         <p>"Very reliable safety platform."</p>
         ⭐⭐⭐⭐
       </div>
 
       <div class="swiper-slide review-card">
-        <img src="https://randomuser.me/api/portraits/women/52.jpg">
+        <img src="https://randomuser.me/api/portraits/women/52.jpg" alt="User Review">
         <h4>Neha Patil</h4>
         <p>"Excellent protection system."</p>
         ⭐⭐⭐⭐⭐
       </div>
 
       <div class="swiper-slide review-card">
-        <img src="https://randomuser.me/api/portraits/women/61.jpg">
+        <img src="https://randomuser.me/api/portraits/women/61.jpg" alt="User Review">
         <h4>Ritu Mehta</h4>
         <p>"Helpful in emergency situations."</p>
         ⭐⭐⭐⭐⭐
       </div>
 
       <div class="swiper-slide review-card">
-        <img src="https://randomuser.me/api/portraits/women/67.jpg">
+        <img src="https://randomuser.me/api/portraits/women/67.jpg" alt="User Review">
         <h4>Kavita Rao</h4>
         <p>"Highly recommended."</p>
         ⭐⭐⭐⭐
       </div>
 
       <div class="swiper-slide review-card">
-  <img src="https://randomuser.me/api/portraits/women/11.jpg">
+  <img src="https://randomuser.me/api/portraits/women/11.jpg" alt="User Review">
   <h4>Priya Malhotra</h4>
   <p>"Raksha is very trustworthy."</p>
   ⭐⭐⭐⭐⭐
 </div>
 
 <div class="swiper-slide review-card">
-  <img src="https://randomuser.me/api/portraits/women/12.jpg">
+  <img src="https://randomuser.me/api/portraits/women/12.jpg" alt="User Review">
   <h4>Shreya Kulkarni</h4>
   <p>"The emergency alert is fast."</p>
   ⭐⭐⭐⭐⭐
@@ -347,6 +367,13 @@ const links = document.querySelectorAll("nav a");
       link.classList.add("active");
     }
   });
+
+const toggle = document.getElementById("menu-toggle");
+const nav = document.getElementById("nav-menu");
+
+toggle.addEventListener("click", () => {
+  nav.classList.toggle("active");
+});
 
 </script>
 
