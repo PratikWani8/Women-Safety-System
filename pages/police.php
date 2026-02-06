@@ -5,12 +5,28 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Nearby Police Stations - Raksha</title>
 
+<!-- META TAGS -->
+<meta name="title" content="Raksha - Women Safety & Emergency Protection System">
+<meta name="description" content="Raksha is a smart women safety platform for SOS alerts, emergency support, live location sharing, and nearby police assistance. Stay safe, stay empowered.">
+
+<meta name="keywords" content="women safety, SOS alert system, emergency help for women, Raksha safety app, women security platform">
+
+<meta name="author" content="Raksha Team">
+<meta name="robots" content="index, follow">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Raksha - Women Safety & Emergency Protection System">
+<meta property="og:description" content="Smart platform for women's safety with instant SOS alerts, live tracking, and police support.">
+
+<meta name="theme-color" content="#e91e63">
+
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet" />
 <link rel="stylesheet" href="../index.css" />
 
 <!-- Leaflet -->
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
+<link rel="icon" href="assets/favicon.jpg" type="image/x-icon" />
 
 <style>
 #map {
@@ -76,7 +92,7 @@
 </div>
 
 <div class="hero-right">
-  <img src="../assets/police.png" alt="Police Map">
+  <img src="../assets/police.png" alt="Police phone illustration">
 </div>
 
 </section>
@@ -109,11 +125,6 @@ let map;
 let userLat, userLng;
 let routeControl;
 let nearestStation = null;
-
-
-/* =====================
-   CUSTOM MARKER ICONS
-===================== */
 
 const userIcon = L.icon({
 

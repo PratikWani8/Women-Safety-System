@@ -35,7 +35,24 @@ if (isset($_POST['change'])) {
 <head>
     <title>Change Admin Password - Raksha</title>
     <link rel="stylesheet" href="../style.css?v=3">
+    <meta charset = "UTF-8" >
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- META TAGS -->
+<meta name="title" content="Raksha - Women Safety & Emergency Protection System">
+<meta name="description" content="Raksha is a smart women safety platform for SOS alerts, emergency support, live location sharing, and nearby police assistance. Stay safe, stay empowered.">
+
+<meta name="keywords" content="women safety, SOS alert system, emergency help for women, Raksha safety app, women security platform">
+
+<meta name="author" content="Raksha Team">
+<meta name="robots" content="index, follow">
+
+<meta property="og:type" content="website">
+<meta property="og:title" content="Raksha - Women Safety & Emergency Protection System">
+<meta property="og:description" content="Smart platform for women's safety with instant SOS alerts, live tracking, and police support.">
+
+<meta name="theme-color" content="#e91e63">
+
+    <link rel="icon" href="../assets/favicon.jpg" type="image/x-icon" />
     <style>
         #change-btn {
   width: 100%;
