@@ -92,8 +92,6 @@
 
 </section>
 
-<!-- ================= How Raksha Works ================= -->
-
 <section class="how-it-works">
 
   <h2>How Raksha Works</h2>
