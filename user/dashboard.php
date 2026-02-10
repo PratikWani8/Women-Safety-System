@@ -1,14 +1,22 @@
 <?php
 include("../config/db.php");
+
 if (!isset($_SESSION['user_id'])) {
     header("Location: ../auth/login.php");
-    exit;
+    exit();
 }
+
 $user_id = $_SESSION['user_id'];
-$result = $conn->query("SELECT name FROM users WHERE user_id = '$user_id'");
+
+$stmt = $conn->prepare("SELECT name FROM users WHERE user_id = ?");
+$stmt->bind_param("i", $user_id);
+$stmt->execute();
+$result = $stmt->get_result();
+
 $user = $result->fetch_assoc();
 $username = $user['name'];
 ?>
+
 
 <!DOCTYPE html>
 <html>

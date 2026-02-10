@@ -1,31 +1,47 @@
 <?php
 include("../config/db.php"); 
 if (isset($_POST['login'])) {
+
     $email = trim($_POST['email']);
     $password = $_POST['password'];
+
     if (empty($email) || empty($password)) {
         echo "<script>alert('All fields are required');</script>";
     }
+
     else if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
         echo "<script>alert('Invalid email format');</script>";
     }
+
     else {
-        $res = $conn->query("SELECT * FROM users WHERE email='$email'");
+
+        $stmt = $conn->prepare("SELECT * FROM users WHERE email=?");
+        $stmt->bind_param("s", $email);
+        $stmt->execute();
+        $res = $stmt->get_result();
+
         if ($res && $res->num_rows === 1) {
+
             $user = $res->fetch_assoc();
+
             if (password_verify($password, $user['password'])) {
+
                 $_SESSION['user_id'] = $user['user_id'];
+
                 header("Location: ../user/dashboard.php");
-                exit;
+                exit();
+
             } else {
                 echo "<script>alert('Invalid password');</script>";
             }
+
         } else {
             echo "<script>alert('Email not registered');</script>";
         }
     }
 }
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en">

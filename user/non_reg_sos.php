@@ -27,7 +27,6 @@ if (isset($_POST['send'])) {
     <link rel="stylesheet" href="../style.css">
     <meta charset = "UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
      <!-- META TAGS -->
 <meta name="title" content="Raksha - Women Safety & Emergency Protection System">
 <meta name="description" content="Raksha is a smart women safety platform for SOS alerts, emergency support, live location sharing, and nearby police assistance. Stay safe, stay empowered.">
@@ -43,7 +42,17 @@ if (isset($_POST['send'])) {
 
 <meta name="theme-color" content="#e91e63">
 
-    <link rel="icon" href="assets/favicon.jpg" type="image/x-icon" />
+  <link rel="icon" href="assets/favicon.jpg" type="image/x-icon" />
+     <style>
+        .pulse {
+            animation: pulse 1s infinite;
+        }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(255,77,77,0.6); }
+            70% { box-shadow: 0 0 0 15px rgba(255,77,77,0); }
+            100% { box-shadow: 0 0 0 0 rgba(255,77,77,0); }
+        }
+    </style>
 </head>
 <body>
 
@@ -70,7 +79,7 @@ alert("🚨 SOS SENT SUCCESSFULLY!");
 
 <button type="button" onclick="getLocation()">📍 Capture Location</button>
 
-<button class="danger" name="send">
+<button class="danger pulse" name="send">
 🚨 SEND SOS
 </button>
 

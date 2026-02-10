@@ -5,6 +5,8 @@ if (!isset($_SESSION['admin'])) {
     exit;
 }
 
+/* Fetch SOS data */
+
 $query = "
 
 SELECT 
@@ -42,8 +44,11 @@ $res = $conn->query($query);
 
 $data = [];
 
-while ($row = $res->fetch_assoc()) {
-    $data[] = $row;
+if ($res) {
+    while ($row = $res->fetch_assoc()) {
+        $data[] = $row;
+    }
 }
 
+header("Content-Type: application/json");
 echo json_encode($data);

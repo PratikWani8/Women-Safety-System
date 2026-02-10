@@ -1,23 +1,38 @@
 <?php
 include("../config/db.php");
+
 if (!isset($_SESSION['user_id'])) {
     header("Location: ../auth/login.php");
-    exit;
+    exit();
 }
+
 $success = false;
+
 if (isset($_POST['send'])) {
 
     $location = $_POST['location'];
     $message  = $_POST['msg'];
 
-    $stmt = $conn->prepare(
-        "INSERT INTO emergency_sos (user_id, location, message)
-         VALUES (?, ?, ?)"
-    );
-    $stmt->bind_param("iss", $_SESSION['user_id'], $location, $message);
-    $stmt->execute();
+    if (empty($location)) {
+        echo "<script>alert('Please capture location first');</script>";
+    } else {
 
-    $success = true;
+        $stmt = $conn->prepare("
+            INSERT INTO emergency_sos (user_id, location, message)
+            VALUES (?, ?, ?)
+        ");
+
+        $stmt->bind_param(
+            "iss",
+            $_SESSION['user_id'],
+            $location,
+            $message
+        );
+
+        $stmt->execute();
+
+        $success = true;
+    }
 }
 ?>
 
@@ -28,7 +43,6 @@ if (isset($_POST['send'])) {
     <link rel="stylesheet" href="../style.css">
     <meta charset = "UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
     <!-- META TAGS -->
 <meta name="title" content="Raksha - Women Safety & Emergency Protection System">
 <meta name="description" content="Raksha is a smart women safety platform for SOS alerts, emergency support, live location sharing, and nearby police assistance. Stay safe, stay empowered.">

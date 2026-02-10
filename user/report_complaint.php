@@ -2,33 +2,44 @@
 include("../config/db.php");
 if (!isset($_SESSION['user_id'])) {
     header("Location: ../auth/login.php");
-    exit;
+    exit();
 }
+
 if (isset($_POST['submit'])) {
+
     $type = $_POST['type'];
     $desc = $_POST['desc'];
     $location = $_POST['location'];
     $fileName = "";
+
     if (!empty($_FILES['evidence']['name'])) {
+
         $allowedTypes = ['image/jpeg', 'image/png', 'audio/mpeg'];
         $maxSize = 2 * 1024 * 1024;
+
         if ($_FILES['evidence']['size'] > $maxSize) {
             die("❌ File size exceeds 2MB limit");
         }
+
         if (!in_array($_FILES['evidence']['type'], $allowedTypes)) {
             die("❌ Invalid file type");
         }
+
         $ext = pathinfo($_FILES['evidence']['name'], PATHINFO_EXTENSION);
         $fileName = bin2hex(random_bytes(10)) . "." . $ext;
+
         move_uploaded_file(
             $_FILES['evidence']['tmp_name'],
             "../uploads/" . $fileName
         );
     }
-    $stmt = $conn->prepare(
-        "INSERT INTO complaints (user_id, incident_type, description, location, evidence)
-         VALUES (?, ?, ?, ?, ?)"
-    );
+
+    $stmt = $conn->prepare("
+        INSERT INTO complaints 
+        (user_id, incident_type, description, location, evidence)
+        VALUES (?, ?, ?, ?, ?)
+    ");
+
     $stmt->bind_param(
         "issss",
         $_SESSION['user_id'],
@@ -37,8 +48,11 @@ if (isset($_POST['submit'])) {
         $location,
         $fileName
     );
+
     $stmt->execute();
+
     $sheetURL = "https://script.google.com/macros/s/AKfycbxQPNz0qWhOBUMl9131kklTQUAB3p9JH6-uH4oQCcaSundLVjzhBKHJdmxMGE6ogZC2/exec";
+
     $sheetData = [
         "user_id"  => $_SESSION['user_id'],
         "type"     => $type,
@@ -46,29 +60,24 @@ if (isset($_POST['submit'])) {
         "location" => $location,
         "evidence" => $fileName
     ];
-    $options = [
-        "http" => [
-            "header"  => "Content-Type: application/json",
-            "method"  => "POST",
-            "content" => json_encode($sheetData),
-            "timeout" => 5
-        ]
-    ];
-    $context = stream_context_create($options);
+
     $ch = curl_init($sheetURL);
-curl_setopt($ch, CURLOPT_POST, true);
-curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($sheetData));
-curl_setopt($ch, CURLOPT_HTTPHEADER, [
-    "Content-Type: application/json",
-    "Content-Length: " . strlen(json_encode($sheetData))
-]);
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false); 
-$response = curl_exec($ch);
-curl_close($ch);
-echo "<script>alert('✅ Complaint submitted successfully');</script>";
+
+    curl_setopt($ch, CURLOPT_POST, true);
+    curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($sheetData));
+    curl_setopt($ch, CURLOPT_HTTPHEADER, [
+        "Content-Type: application/json"
+    ]);
+    curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+
+    curl_exec($ch);
+    curl_close($ch);
+
+    echo "<script>alert('✅ Complaint submitted successfully');</script>";
 }
 ?>
+
 
 <!DOCTYPE html>
 <html>
@@ -76,7 +85,6 @@ echo "<script>alert('✅ Complaint submitted successfully');</script>";
     <title>Report Complaint - Raksha</title>
     <meta charset = "UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
     <!-- META TAGS -->
 <meta name="title" content="Raksha - Women Safety & Emergency Protection System">
 <meta name="description" content="Raksha is a smart women safety platform for SOS alerts, emergency support, live location sharing, and nearby police assistance. Stay safe, stay empowered.">
