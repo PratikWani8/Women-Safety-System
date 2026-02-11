@@ -90,6 +90,8 @@ alert("🚨 SOS SENT SUCCESSFULLY!");
 
 <form method="post" id="sosForm">
 
+<h4>Send SOS Alert by just shaking your phone.</h4>
+
 <input type="hidden" name="location" id="location">
 
 <label>Emergency Message</label>
