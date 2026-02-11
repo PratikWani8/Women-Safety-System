@@ -8,15 +8,18 @@ if (isset($_POST['send'])) {
     $location = $_POST['location'];
     $message  = $_POST['msg'];
 
-    $stmt = $conn->prepare(
-        "INSERT INTO non_reg_sos (location, message)
-         VALUES (?, ?)"
-    );
+    if (!empty($location)) {
 
-    $stmt->bind_param("ss", $location, $message);
-    $stmt->execute();
+        $stmt = $conn->prepare(
+            "INSERT INTO non_reg_sos (location, message)
+             VALUES (?, ?)"
+        );
 
-    $success = true;
+        $stmt->bind_param("ss", $location, $message);
+        $stmt->execute();
+
+        $success = true;
+    }
 }
 ?>
 
@@ -24,10 +27,13 @@ if (isset($_POST['send'])) {
 <html>
 <head>
     <title>Emergency SOS (Guest) - Raksha</title>
+
     <link rel="stylesheet" href="../style.css">
-    <meta charset = "UTF-8" />
+
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <!-- META TAGS -->
+
+    <!-- META TAGS -->
 <meta name="title" content="Raksha - Women Safety & Emergency Protection System">
 <meta name="description" content="Raksha is a smart women safety platform for SOS alerts, emergency support, live location sharing, and nearby police assistance. Stay safe, stay empowered.">
 
@@ -41,12 +47,21 @@ if (isset($_POST['send'])) {
 <meta property="og:description" content="Smart platform for women's safety with instant SOS alerts, live tracking, and police support.">
 
 <meta name="theme-color" content="#e91e63">
+<link rel="icon" href="assets/favicon.jpg" type="image/x-icon" />
 
-  <link rel="icon" href="assets/favicon.jpg" type="image/x-icon" />
-     <style>
+    <style>
         .pulse {
-            animation: pulse 1s infinite;
+        height: 100px;
+        width: 100px;
+        border-radius: 50%;
+        margin: 40px auto;
+        color: #fff;
+        display: flex;
+        justify-content: center;
+        align-items: center;    
+        animation: pulse 1s infinite;
         }
+
         @keyframes pulse {
             0% { box-shadow: 0 0 0 0 rgba(255,77,77,0.6); }
             70% { box-shadow: 0 0 0 15px rgba(255,77,77,0); }
@@ -54,6 +69,7 @@ if (isset($_POST['send'])) {
         }
     </style>
 </head>
+
 <body>
 
 <header>
@@ -61,6 +77,7 @@ if (isset($_POST['send'])) {
 <h2>🚨 Emergency SOS (Without Login)</h2>
 </div>
 </header>
+
 
 <div class="card">
 
@@ -70,39 +87,88 @@ alert("🚨 SOS SENT SUCCESSFULLY!");
 </script>
 <?php endif; ?>
 
-<form method="post">
+
+<form method="post" id="sosForm">
 
 <input type="hidden" name="location" id="location">
 
 <label>Emergency Message</label>
+
 <textarea name="msg" required>Help! I am in danger.</textarea>
 
-<button type="button" onclick="getLocation()">📍 Capture Location</button>
-
-<button class="danger pulse" name="send">
-🚨 SEND SOS
+<button type="button" class="danger pulse" onclick="sendSOS()">
+SEND SOS
 </button>
+
+<input type="hidden" name="send" id="sendBtn">
 
 </form>
 
 </div>
 
 <script>
-function getLocation() {
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(
-            function (pos) {
-                document.getElementById("location").value =
-                    pos.coords.latitude + "," + pos.coords.longitude;
 
-                alert("📍 Location Captured");
-            },
-            function () {
-                alert("❌ Permission Denied");
-            }
-        );
+function sendSOS() {
+
+    if (!navigator.geolocation) {
+        alert("❌ Location not supported");
+        return;
     }
+
+    navigator.geolocation.getCurrentPosition(
+
+        function (pos) {
+
+            document.getElementById("location").value =
+                pos.coords.latitude + "," + pos.coords.longitude;
+
+            document.getElementById("sendBtn").value = "1";
+
+            document.getElementById("sosForm").submit();
+        },
+
+        function () {
+            alert("❌ Please enable location access");
+        }
+    );
 }
+
+// Shake sos detection
+
+let lastX = 0, lastY = 0, lastZ = 0;
+let shakeThreshold = 15;   // Sensitivity
+let lastShake = 0;
+
+window.addEventListener("devicemotion", function (event) {
+
+    let acc = event.accelerationIncludingGravity;
+
+    if (!acc) return;
+
+    let diffX = Math.abs(acc.x - lastX);
+    let diffY = Math.abs(acc.y - lastY);
+    let diffZ = Math.abs(acc.z - lastZ);
+
+    if (diffX + diffY + diffZ > shakeThreshold) {
+
+        let now = new Date().getTime();
+
+        // Prevent multiple SOS
+        if (now - lastShake > 5000) {
+
+            lastShake = now;
+
+            alert("📳 Shake detected! Sending SOS...");
+
+            sendSOS();
+        }
+    }
+
+    lastX = acc.x;
+    lastY = acc.y;
+    lastZ = acc.z;
+
+});
 </script>
 
 </body>
