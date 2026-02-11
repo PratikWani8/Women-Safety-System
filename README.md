@@ -58,7 +58,7 @@ Raksha helps users, especially women, to stay safe by enabling real-time emergen
 ### ALGORITHMS 
 - Haversine Algorithm - Distance Calculation
 - Linear Search - Nearest Location Finding
-- Graph Shortest Path - Routing Algorithm
+- Graph Shortest Path - Routing Algorithm (A*)
 
 ---
 
