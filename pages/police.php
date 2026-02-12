@@ -154,9 +154,7 @@ const policeIcon = L.icon({
 });
 
 
-/* =====================
-   GET LOCATION
-===================== */
+// GET LOCATION
 
 function getLocation() {
 
@@ -175,9 +173,7 @@ function getLocation() {
 }
 
 
-/* =====================
-   SHOW MAP
-===================== */
+// SHOW MAP
 
 function showMap(position) {
 
@@ -217,9 +213,7 @@ function showMap(position) {
 }
 
 
-/* =====================
-   DISTANCE FUNCTION
-===================== */
+// DISTANCE FUNCTION
 
 function getDistance(lat1, lon1, lat2, lon2) {
 
@@ -242,9 +236,7 @@ function getDistance(lat1, lon1, lat2, lon2) {
 }
 
 
-/* =====================
-   LOAD POLICE STATIONS
-===================== */
+// LOAD POLICE STATIONS
 
 function getPoliceStations(lat, lng) {
 
@@ -360,9 +352,7 @@ function getPoliceStations(lat, lng) {
 }
 
 
-/* =====================
-   SHOW ROUTE
-===================== */
+// SHOW ROUTE
 
 function showRoute(destLat, destLng) {
 
@@ -390,9 +380,7 @@ function showRoute(destLat, destLng) {
 }
 
 
-/* =====================
-   ERROR HANDLING
-===================== */
+// ERROR HANDLING
 
 function showError(error) {
 

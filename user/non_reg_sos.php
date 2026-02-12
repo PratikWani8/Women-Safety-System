@@ -83,10 +83,12 @@ if (isset($_POST['send'])) {
 
 <?php if ($success): ?>
 <script>
-alert("🚨 SOS SENT SUCCESSFULLY!");
+alert("🚨 SOS ALERT SENT!\nAuthorities have been notified through the system.");
 </script>
+<p style="text-align:center; font-weight:bold; color:#d32f2f;">
+        🚨 SOS Sent Successfully!
+    </p>
 <?php endif; ?>
-
 
 <form method="post" id="sosForm">
 
