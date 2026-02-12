@@ -180,8 +180,6 @@ function showMap(position) {
   userLat = position.coords.latitude;
   userLng = position.coords.longitude;
 
-
-  // Remove old map if exists
   if (map) {
     map.remove();
   }
