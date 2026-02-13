@@ -47,7 +47,7 @@ if (isset($_POST['send'])) {
 <meta property="og:description" content="Smart platform for women's safety with instant SOS alerts, live tracking, and police support.">
 
 <meta name="theme-color" content="#e91e63">
-<link rel="icon" href="assets/favicon.jpg" type="image/x-icon" />
+<link rel="icon" href="../assets/favicon.jpg" type="image/x-icon" />
 
     <style>
         .pulse {

@@ -26,7 +26,7 @@
 <!-- Leaflet -->
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
 <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css" />
-<link rel="icon" href="assets/favicon.jpg" type="image/x-icon" />
+<link rel="icon" href="../assets/favicon.jpg" type="image/x-icon" />
 
 <style>
 #map {
@@ -271,7 +271,6 @@ function getPoliceStations(lat, lng) {
 
       let minDistance = Infinity;
       nearestStation = null;
-
 
       data.elements.forEach(place => {
 

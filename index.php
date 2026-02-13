@@ -124,7 +124,7 @@
       <span>3</span>
       <h3>Share Location</h3>
       <p>
-        Your live location is shared with police, guardians, and trusted contacts.
+        Your live location is shared with police and authorities.
       </p>
     </div>
 

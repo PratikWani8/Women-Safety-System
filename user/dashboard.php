@@ -41,7 +41,7 @@ $username = $user['name'];
 
 <meta name="theme-color" content="#e91e63">
 
-    <link rel="icon" href="assets/favicon.jpg" type="image/x-icon" />
+    <link rel="icon" href="../assets/favicon.jpg" type="image/x-icon" />
 </head>
 <body>
 <header>

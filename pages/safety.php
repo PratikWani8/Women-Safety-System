@@ -24,7 +24,7 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <link rel="stylesheet" href="../index.css" />
-  <link rel="icon" href="assets/favicon.jpg" type="image/x-icon" />
+  <link rel="icon" href="../assets/favicon.jpg" type="image/x-icon" />
 </head>
 <body>
 
