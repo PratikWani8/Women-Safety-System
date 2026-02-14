@@ -66,7 +66,7 @@
     <h1>
       Your Personal Safety <br>
       <span>Protection</span><br>
-      Companion
+      Companion.
     </h1>
 
     <p>
