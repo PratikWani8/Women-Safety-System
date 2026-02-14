@@ -141,7 +141,6 @@
 
 </section>
 
-
 <section class="reviews-section">
 
   <h2>What Our Users Say</h2>
@@ -224,7 +223,6 @@
     </div>
 
   </div>
-
 
   <!-- Second Slider  -->
   <div class="swiper reviewSwiper2">
@@ -334,7 +332,6 @@ document.addEventListener("DOMContentLoaded", function () {
     freeMode: true,
     freeModeMomentum: false,
   });
-
 
   // Second Slider 
   new Swiper(".reviewSwiper2", {
