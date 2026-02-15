@@ -63,6 +63,7 @@ if (isset($_POST['login'])) {
     <label>Password</label>
     <input type="password" name="password" placeholder="Enter password" required>
     <button class="danger" type="submit" name="login">Login</button>
+    <p style="color: grey; text-align: center;">Authorized Entries Only.</p>
 </form>
 </div>
 <script>
