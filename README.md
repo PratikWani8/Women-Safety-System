@@ -17,6 +17,7 @@ Raksha helps users, especially women, to stay safe by enabling real-time emergen
 - Shake-to-SOS
 - One Click SOS
 - Share Live Location
+- Nearby Police Stations
 - Report Complaints
 - View Complaint Status
 - Secure Logout System
