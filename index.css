@@ -284,6 +284,7 @@ nav a.active {
   }
 }
 
+/* ================= RESPONSIVE ================= */
 @media (max-width: 768px) {
 
   .menu-toggle {
@@ -347,7 +348,7 @@ nav a.active {
 
   .how-it-works {
   width: 100%;
-  background-color: #ffffff;
+  background: #fff7fa;
   margin: 0;
   padding: 100px 20px;
   text-align: center;
@@ -363,7 +364,7 @@ nav a.active {
 
 .how-desc {
   color: #666;
-  font-size: 16px;
+  font-size: 19px;
   max-width: 700px;
   margin: 0 auto 50px;
   line-height: 1.6;
@@ -472,4 +473,129 @@ nav a.active {
 
 .swiper-wrapper {
   transition-timing-function: linear !important;
+}
+
+/* ================= WHY RAKSHA ================= */
+
+.why-raksha {
+  padding: 80px 80px;
+  text-align: center;
+  background: #fff;
+}
+
+.why-raksha h2 {
+  font-size: 36px;
+  margin-bottom: 15px;
+  color: #e91e63;
+}
+
+.why-desc {
+  max-width: 700px;
+  margin: auto;
+  color: #666;
+  margin-bottom: 50px;
+  line-height: 1.6;
+  font-size: 19px;
+}
+
+.why-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 30px;
+}
+
+.why-card {
+  background: #fff5f8;
+  padding: 30px;
+  border: 1.5px solid #e91e63;
+  border-radius: 20px;
+  transition: 0.3s;
+}
+
+.why-card:hover {
+  transform: translateY(-8px);
+}
+
+.why-card .icon {
+  font-size: 35px;
+  margin-bottom: 15px;
+}
+
+.why-card h3 {
+  margin-bottom: 10px;
+  color: #e91e63;
+}
+
+.why-card p {
+  color: #555;
+  font-size: 14px;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+  .why-raksha {
+    padding: 60px 30px;
+  }
+
+  .why-raksha h2 {
+    font-size: 30px;
+  }
+
+  .why-desc {
+    font-size: 19px;
+    margin-bottom: 40px;
+  }
+
+  .why-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 25px;
+  }
+
+  .why-box {
+    padding: 25px;
+  }
+}
+
+@media (max-width: 480px) {
+  .why-raksha {
+    padding: 50px 20px;
+  }
+
+  .why-raksha h2 {
+    font-size: 26px;
+  }
+
+  .why-desc {
+    font-size: 19px;
+    margin-bottom: 30px;
+  }
+
+  .why-container {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .why-box {
+    padding: 20px;
+    text-align: center;
+  }
+
+  .why-box i {
+    font-size: 26px;
+    margin-bottom: 10px;
+  }
+}
+
+@media (max-width: 360px) {
+  .why-raksha h2 {
+    font-size: 22px;
+  }
+
+  .why-box h3 {
+    font-size: 16px;
+  }
+
+  .why-box p {
+    font-size: 13px;
+  }
 }

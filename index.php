@@ -57,6 +57,8 @@
   </div>
 </header>
 
+<!-- Hero Section -->
+
 <section class="hero">
 
   <div class="hero-left">
@@ -91,6 +93,59 @@
   </div>
 
 </section>
+
+<!-- why raksha section -->
+
+<section class="why-raksha">
+
+  <h2>Why Choose Raksha?</h2>
+  <p class="why-desc">
+    Raksha is more than just a safety platform. It empowers women with smart features,
+    fast response, and reliable protection whenever needed.
+  </p>
+
+  <div class="why-container">
+
+    <div class="why-card">
+      <div class="icon">🚨</div>
+      <h3>Instant SOS Alerts</h3>
+      <p>Send emergency alerts instantly with one click during dangerous situations.</p>
+    </div>
+
+    <div class="why-card">
+      <div class="icon">📍</div>
+      <h3>Live Location Tracking</h3>
+      <p>Share your real-time location with authorities and trusted contacts.</p>
+    </div>
+
+    <div class="why-card">
+      <div class="icon">👮</div>
+      <h3>Nearby Police Help</h3>
+      <p>Quickly find nearby police stations and emergency support services.</p>
+    </div>
+
+    <div class="why-card">
+      <div class="icon">🔒</div>
+      <h3>Secure & Private</h3>
+      <p>Your data is encrypted and protected to ensure maximum privacy.</p>
+    </div>
+
+    <div class="why-card">
+      <div class="icon">⚡</div>
+      <h3>Fast Response</h3>
+      <p>Authorities receive alerts immediately for quicker response time.</p>
+    </div>
+
+    <div class="why-card">
+      <div class="icon">💖</div>
+      <h3>Women Empowerment</h3>
+      <p>Helping women feel safe, confident, and empowered in daily life.</p>
+    </div>
+
+  </div>
+
+</section>
+
 
 <section class="how-it-works">
 
