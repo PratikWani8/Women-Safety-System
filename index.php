@@ -58,7 +58,6 @@
 </header>
 
 <!-- Hero Section -->
-
 <section class="hero">
 
   <div class="hero-left">
@@ -95,7 +94,6 @@
 </section>
 
 <!-- why raksha section -->
-
 <section class="why-raksha">
 
   <h2>Why Choose Raksha?</h2>
@@ -146,7 +144,7 @@
 
 </section>
 
-
+<!-- how it works section -->
 <section class="how-it-works">
 
   <h2>How Raksha Works</h2>
@@ -419,6 +417,7 @@ const links = document.querySelectorAll("nav a");
     }
   });
 
+  // Mobile Menu Toggle
 const toggle = document.getElementById("menu-toggle");
 const nav = document.getElementById("nav-menu");
 
