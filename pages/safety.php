@@ -38,23 +38,26 @@
 
   <!-- Navbar -->
   <header>
-    <div class="nav-container">
+  <div class="nav-container">
+    <div class="logo">Raksha</div>
 
-      <div class="logo">Raksha</div>
+    <div class="menu-toggle" id="menu-toggle">
+  ☰
+</div>
 
-      <nav>
-        <a href="../index.php">Home</a>
-        <a href="safety.php">Safety Tips</a>
-        <a href="police.php">Nearby Police</a>
-        <a href="../auth/register.php">User</a>
-        <a href="../admin/admin_login.php">Admin</a>
-      </nav>
-      <a href="../auth/register.php">
+<nav id="nav-menu">
+  <a href="../index.php">Home</a>
+  <a href="safety.php">Safety Tips</a>
+  <a href="police.php">Nearby Police</a>
+  <a href="../auth/register.php">User</a>
+  <a href="../admin/admin_login.php">Admin</a>
+</nav>
+
+    <a href="../auth/register.php">
       <button class="start-btn">Start Protection</button>
-      </a>
-
-    </div>
-  </header>
+    </a>
+  </div>
+</header>
 
   <!-- Safety Tips Section -->
   <section class="hero">
@@ -158,6 +161,15 @@
       link.classList.add("active");
     }
   });
+
+  // Mobile Menu Toggle
+const toggle = document.getElementById("menu-toggle");
+const nav = document.getElementById("nav-menu");
+
+toggle.addEventListener("click", () => {
+  nav.classList.toggle("active");
+});
+
 </script>
 
 </body>
