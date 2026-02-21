@@ -52,6 +52,8 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  backdrop-filter: blur(15px);
+  background: rgba(255,255,255,0.05);
 }
 
 .logo {
